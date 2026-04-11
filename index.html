@@ -135,7 +135,7 @@ a { text-decoration: none; color: inherit; }
 }
 .factory-grid {
   position: absolute; inset: 0;
-  background-image: url('assets/Factory.png');
+  background-image:
     repeating-linear-gradient(0deg, rgba(106,156,196,.04) 0, rgba(106,156,196,.04) 1px, transparent 1px, transparent 28px),
     repeating-linear-gradient(90deg, rgba(106,156,196,.04) 0, rgba(106,156,196,.04) 1px, transparent 1px, transparent 28px);
 }
@@ -153,7 +153,7 @@ a { text-decoration: none; color: inherit; }
 }
 .studio-lines {
   position: absolute; inset: 0;
-  background-image: url('assets/Studio.png');
+  background-image:
     repeating-linear-gradient(0deg, rgba(74,158,106,.025) 0, rgba(74,158,106,.025) 1px, transparent 1px, transparent 40px),
     repeating-linear-gradient(90deg, rgba(74,158,106,.012) 0, rgba(74,158,106,.012) 1px, transparent 1px, transparent 80px);
 }
@@ -1457,7 +1457,7 @@ a { text-decoration: none; color: inherit; }
   /* ── Diamond draw ── */
   function drawDiamond(canvas, angle) {
     var ctx = canvas.getContext('2d');
-    var W = 32, H = 24;
+    var W = 40, H = 30;
     var cx = canvas.width  / 2;
     var cy = canvas.height / 2;
     var fov = 280;
@@ -1567,12 +1567,12 @@ a { text-decoration: none; color: inherit; }
     ctx.fillStyle    = 'rgba(74,158,106,0.85)';
     ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('Studio', cx - 17, cy + 1);
+    ctx.fillText('Studio', cx - 22, cy + 1);
 
     /* Factory label — right half, condensed, static */
     ctx.font      = '500 9px "Barlow Condensed",sans-serif';
     ctx.fillStyle = 'rgba(106,156,196,0.85)';
-    ctx.fillText('Factory', cx + 18, cy + 1);
+    ctx.fillText('Factory', cx + 23, cy + 1);
   }
 
   /* ── Angle from pause-beat cycle ── */

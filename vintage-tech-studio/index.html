@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vintage Tech — Studio &amp; Factory</title>
+  <meta name="description" content="Reverse engineering the past for the future. Vintage Tech is a Sydney-based studio and factory specialising in heritage design, precision engineering, and the Homage to Form art and design programme.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Barlow+Condensed:wght@200;300;400;500;600;700&family=Barlow:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <nav class="nav-left">
+        <a href="#studio" class="nav-link">The Studio</a>
+        <a href="#editions" class="nav-link">The Editions</a>
+        <a href="#factory" class="nav-link">The Factory</a>
+      </nav>
+      <div class="nav-brand">
+        <a href="#hero" class="nav-logo-wrap">
+          <div class="nav-logo-text">
+            <div class="brand-name">Vintage Tech</div>
+            <div class="brand-tag">Studio &middot; Factory</div>
+          </div>
+        </a>
+      </div>
+      <nav class="nav-right">
+        <a href="#journal" class="nav-link">Journal</a>
+        <a href="#commission" class="nav-cta">Commission</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       SPLIT-SCREEN HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Factory world — right / base layer -->
+    <div class="hero-factory" id="heroFactory">
+      <div class="factory-grid"></div>
+      <div class="factory-img" style="background-image:url('assets/images/placeholder-factory.jpg')"></div>
+    </div>
+
+    <!-- Studio world — left / clip layer -->
+    <div class="hero-studio" id="heroStudio">
+      <div class="studio-lines"></div>
+      <div class="studio-img" style="background-image:url('assets/images/placeholder-studio.jpg')"></div>
+    </div>
+
+    <!-- Dividing line -->
+    <div class="hero-divider" id="heroDivider">
+      <div class="divider-tick top"></div>
+      <div class="divider-tick bottom"></div>
+    </div>
+
+    <!-- Animated rotating diamond ON the divider line -->
+    <canvas class="hero-diamond-canvas" id="heroDiamond" width="130" height="104"></canvas>
+
+    <!-- Studio content — revealed on left drag -->
+    <div class="hero-content studio-content" id="studioContent">
+      <div class="hc-eyebrow">I — The Studio</div>
+      <h1 class="hc-headline studio-headline">Where<br>Form Finds<br><em>Its Story</em></h1>
+      <p class="hc-body">Form, vision, heritage and narrative — explored before a single part is made.</p>
+      <a href="#studio" class="hc-action studio-action">
+        <span class="action-arrow">→</span> Explore Studio
+      </a>
+    </div>
+
+    <!-- Factory content — revealed on right drag -->
+    <div class="hero-content factory-content" id="factoryContent">
+      <div class="hc-eyebrow factory-eyebrow">II — The Factory</div>
+      <h2 class="hc-headline factory-headline">Idea<br>Meets<br><span>Iron.</span></h2>
+      <p class="hc-body">Those ideas are engineered and manufactured to last.</p>
+      <a href="#factory" class="hc-action factory-action">
+        View Capabilities <span class="action-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Mantra — only placement on the site -->
+    <div class="hero-mantra">
+      <div class="mantra-past">Reverse engineering the past</div>
+      <div class="mantra-orn">
+        <span class="mantra-line"></span>
+        <span class="mantra-diamond"></span>
+        <span class="mantra-line"></span>
+      </div>
+      <div class="mantra-future">for the future</div>
+    </div>
+
+    <div class="hero-hint" id="heroHint">&larr;&nbsp; move to explore &nbsp;&rarr;</div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       BRIDGE BAND
+  ═══════════════════════════════════════ -->
+  <div class="bridge" id="bridge">
+    <div class="bridge-studio">
+      <div class="bridge-world-label studio-label">The Studio</div>
+      <div class="bridge-desc">Where form, vision, heritage and narrative are explored</div>
+    </div>
+    <div class="bridge-centre">
+      <div class="bridge-mark">Vintage Tech</div>
+      <div class="bridge-orn">
+        <span class="b-line"></span>
+        <span class="b-diamond"></span>
+        <span class="b-line"></span>
+      </div>
+      <div class="bridge-location">Bondi Junction, Sydney</div>
+    </div>
+    <div class="bridge-factory">
+      <div class="bridge-world-label factory-label">The Factory</div>
+      <div class="bridge-desc">Where those ideas are engineered and manufactured</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       THE STUDIO
+  ═══════════════════════════════════════ -->
+  <section class="world-section studio-section" id="studio">
+    <div class="section-inner">
+
+      <div class="section-head">
+        <div class="section-num">I</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow studio-eyebrow-text">The Studio</div>
+          <h2 class="section-title studio-title">Where Form,<br>Vision &amp; <em>Heritage</em><br>Are Explored</h2>
+        </div>
+        <div class="section-manifesto">
+          <blockquote class="studio-quote">
+            "We do not start with what it should look like. We start with what it should <strong>mean</strong> — and let form follow from there."
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="disciplines-grid">
+        <div class="discipline-card">
+          <div class="dc-num">01</div>
+          <div class="dc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="3" y="3" width="26" height="26" stroke="rgba(74,158,106,0.35)" stroke-width="0.75"/>
+              <rect x="9" y="9" width="14" height="14" stroke="rgba(74,158,106,0.6)" stroke-width="0.75"/>
+              <line x1="16" y1="3" x2="16" y2="9" stroke="rgba(74,158,106,0.3)" stroke-width="0.75"/>
+              <line x1="16" y1="23" x2="16" y2="29" stroke="rgba(74,158,106,0.3)" stroke-width="0.75"/>
+            </svg>
+          </div>
+          <div class="dc-name">Form &amp; Object</div>
+          <div class="dc-desc">Industrial and product design rooted in material truth. Objects that justify their existence through considered form.</div>
+        </div>
+        <div class="discipline-card">
+          <div class="dc-num">02</div>
+          <div class="dc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <polygon points="16,2 30,28 2,28" stroke="rgba(74,158,106,0.35)" stroke-width="0.75" fill="none"/>
+              <line x1="16" y1="2" x2="16" y2="28" stroke="rgba(74,158,106,0.3)" stroke-width="0.5"/>
+            </svg>
+          </div>
+          <div class="dc-name">Vision &amp; Direction</div>
+          <div class="dc-desc">Creative strategy and design direction for brands operating at the edge of craft and modernity.</div>
+        </div>
+        <div class="discipline-card">
+          <div class="dc-num">03</div>
+          <div class="dc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="11" stroke="rgba(74,158,106,0.35)" stroke-width="0.75"/>
+              <circle cx="16" cy="16" r="5" fill="rgba(74,158,106,0.08)" stroke="rgba(74,158,106,0.5)" stroke-width="0.75"/>
+            </svg>
+          </div>
+          <div class="dc-name">Heritage &amp; Research</div>
+          <div class="dc-desc">Archival investigation, material provenance, and form analysis. Understanding what was made before reaching for the new.</div>
+        </div>
+        <div class="discipline-card">
+          <div class="dc-num">04</div>
+          <div class="dc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <line x1="3" y1="16" x2="29" y2="16" stroke="rgba(74,158,106,0.4)" stroke-width="0.75"/>
+              <line x1="16" y1="3" x2="16" y2="29" stroke="rgba(74,158,106,0.4)" stroke-width="0.75"/>
+              <rect x="10" y="10" width="12" height="12" fill="rgba(74,158,106,0.06)" stroke="rgba(74,158,106,0.3)" stroke-width="0.75"/>
+            </svg>
+          </div>
+          <div class="dc-name">Narrative &amp; Identity</div>
+          <div class="dc-desc">Brand systems and editorial language built to endure across decades. Identity with depth and material intelligence.</div>
+        </div>
+      </div>
+
+      <div class="process-strip">
+        <div class="process-step">
+          <div class="ps-num">01 — Immerse</div>
+          <div class="ps-name">Research</div>
+          <div class="ps-desc">Material history, cultural context, and the unspoken reasons a thing has always been made a certain way.</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">02 — Conceive</div>
+          <div class="ps-name">Sketch</div>
+          <div class="ps-desc">Hand to paper, analogue first. The fastest ideas are rarely the right ones.</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">03 — Resolve</div>
+          <div class="ps-name">Define</div>
+          <div class="ps-desc">From intention to specification. Every detail earned, every decision defended.</div>
+        </div>
+        <div class="process-step">
+          <div class="ps-num">04 — Handoff</div>
+          <div class="ps-name">Transmit</div>
+          <div class="ps-desc">The Studio passes the baton. The Factory takes the vision and makes it real.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       THE EDITIONS
+  ═══════════════════════════════════════ -->
+  <section class="world-section editions-section" id="editions">
+    <div class="section-inner">
+
+      <div class="section-head editions-head">
+        <div class="section-num editions-num">II</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow editions-eyebrow-text">The Editions</div>
+          <h2 class="section-title editions-title"><em>Homage to Form</em><br>&amp; Future Series</h2>
+        </div>
+        <div class="editions-intro">
+          <p class="editions-intro-text">An ongoing programme of art and design objects. Each series a numbered edition — thematically distinct, materially considered, fabricated at Vintage Tech.</p>
+          <a href="#commission" class="editions-trade-link">Trade Enquiries <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- Series I -->
+      <div class="series-block">
+        <div class="series-label">Series I</div>
+        <div class="series-inner">
+          <div class="series-image-col">
+            <div class="series-img-placeholder">
+              <div class="sip-label">Homage to Form</div>
+              <div class="sip-sub">Photography coming</div>
+            </div>
+          </div>
+          <div class="series-text-col">
+            <div class="series-eyebrow">Art History &amp; the Technology of Making</div>
+            <h3 class="series-title"><em>Homage to Form</em></h3>
+            <div class="series-body">
+              <p>Form does not fade. It persists throughout time.</p>
+              <p>Long after a maker is gone, form remains — carrying forward decisions shaped by material, constraint, and intent. This is how knowledge moves across generations: not through instruction, but through what endures.</p>
+              <p>At Vintage Tech, reverse engineering the past begins with form.</p>
+            </div>
+            <div class="series-details">
+              <div class="sd-item">
+                <div class="sd-label">Medium</div>
+                <div class="sd-value">3D Fabricated, Hand-finished</div>
+              </div>
+              <div class="sd-item">
+                <div class="sd-label">Programme</div>
+                <div class="sd-value">Edition I — Ongoing</div>
+              </div>
+              <div class="sd-item">
+                <div class="sd-label">Available</div>
+                <div class="sd-value">Wholesale — Trade Registration</div>
+              </div>
+            </div>
+            <a href="#commission" class="series-cta">Register Trade Interest <span>→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future series placeholder -->
+      <div class="future-series">
+        <div class="fs-label">Future Series</div>
+        <div class="fs-desc">Subsequent series will explore distinct thematic territories — craft traditions, natural systems, industrial heritage, and beyond. Each a numbered edition under the Vintage Tech programme.</div>
+        <div class="fs-status">In Development</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       THE FACTORY
+  ═══════════════════════════════════════ -->
+  <section class="world-section factory-section" id="factory">
+    <div class="factory-grid-bg"></div>
+    <div class="section-inner">
+
+      <div class="section-head factory-head">
+        <div class="section-num factory-num">III</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow factory-eyebrow-text">// The Factory</div>
+          <h2 class="section-title factory-title">Idea<br>Meets<br><span class="factory-accent">Iron.</span></h2>
+        </div>
+        <div class="factory-intro">
+          <p class="factory-intro-text">Where the Studio's vision meets the discipline of manufacture — toleranced, tested, built to outlast the era that imagined it.</p>
+        </div>
+      </div>
+
+      <!-- Object as Thread — Six Service Sequence -->
+      <div class="service-sequence">
+        <div class="seq-header">
+          <div class="seq-header-studio">Studio half — understand</div>
+          <div class="seq-divider-v"></div>
+          <div class="seq-header-factory">Factory half — make</div>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Studio services -->
+          <div class="service-card studio-service">
+            <div class="sc-num">01</div>
+            <div class="sc-name">3D Scanning</div>
+            <div class="sc-desc">Capturing what still exists of the original object with precision point-cloud technology.</div>
+            <div class="sc-tag">Capture</div>
+          </div>
+          <div class="service-card studio-service">
+            <div class="sc-num">02</div>
+            <div class="sc-name">Reverse Engineering</div>
+            <div class="sc-desc">Understanding how it was made, why it was made that way, and what principles governed its form.</div>
+            <div class="sc-tag">Understand</div>
+          </div>
+          <div class="service-card studio-service">
+            <div class="sc-num">03</div>
+            <div class="sc-name">AutoCAD Design</div>
+            <div class="sc-desc">Translating heritage understanding into a precise modern specification ready for manufacture.</div>
+            <div class="sc-tag">Specify</div>
+          </div>
+
+          <!-- Thread divider -->
+          <div class="thread-divider">
+            <div class="td-line"></div>
+            <div class="td-text">The Object as Thread</div>
+            <div class="td-line"></div>
+          </div>
+
+          <!-- Factory services -->
+          <div class="service-card factory-service">
+            <div class="sc-num">04</div>
+            <div class="sc-name">3D Printing &amp; Prototyping</div>
+            <div class="sc-desc">Testing the idea before committing to material. Rapid iteration on form and function.</div>
+            <div class="sc-tag factory-tag">Test</div>
+          </div>
+          <div class="service-card factory-service">
+            <div class="sc-num">05</div>
+            <div class="sc-name">CNC Machining 5-Axis</div>
+            <div class="sc-desc">Precision manufacture at modern tolerances. Complex geometries executed with exacting accuracy.</div>
+            <div class="sc-tag factory-tag">Manufacture</div>
+          </div>
+          <div class="service-card factory-service">
+            <div class="sc-num">06</div>
+            <div class="sc-name">Foundry Casting</div>
+            <div class="sc-desc">Recreating original material form and surface. The past remade in its own language.</div>
+            <div class="sc-tag factory-tag">Complete</div>
+          </div>
+
+        </div>
+
+        <!-- Specs bar -->
+        <div class="specs-bar">
+          <div class="spec-item">
+            <div class="spec-val">±0.005<span class="spec-u">mm</span></div>
+            <div class="spec-label">Tolerance</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-val">5<span class="spec-u">-axis</span></div>
+            <div class="spec-label">CNC Milling</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-val">72<span class="spec-u">hr</span></div>
+            <div class="spec-label">Rapid Proto</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-val">ISO<span class="spec-u"> 9001</span></div>
+            <div class="spec-label">Certified</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bespoke Automotive -->
+      <div class="automotive-block">
+        <div class="auto-label">Specialisation</div>
+        <div class="auto-inner">
+          <div class="auto-text">
+            <h3 class="auto-title">Bespoke <em>Automotive</em></h3>
+            <p class="auto-desc">Classic and vintage automotive restoration represents the purest expression of what Vintage Tech does — a discipline where heritage, precision, and material intelligence converge in a single object that must perform as well as it endures.</p>
+            <a href="#commission" class="auto-cta">Discuss Your Project <span>→</span></a>
+          </div>
+          <div class="auto-img-placeholder">
+            <div class="aip-label">Automotive</div>
+            <div class="aip-sub">Photography coming</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Also includes -->
+      <div class="also-includes">
+        <div class="ai-label">Also includes</div>
+        <div class="ai-items">
+          <div class="ai-item">Mechanical Engineering Services</div>
+          <div class="ai-item">Sheet Metal Fabrication</div>
+          <div class="ai-item">Surface Finishing</div>
+          <div class="ai-item">CMM Inspection</div>
+          <div class="ai-item">Assembly</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       JOURNAL
+  ═══════════════════════════════════════ -->
+  <section class="journal-section" id="journal">
+    <div class="section-inner">
+
+      <div class="journal-head">
+        <div class="journal-eyebrow">The Journal</div>
+        <h2 class="journal-title">Ideas, Material Culture<br>&amp; <em>The Act of Making</em></h2>
+        <p class="journal-intro">Long-form writing on art history, heritage manufacture, AI and design, and the stories behind specific commissions. Vintage Tech's public editorial voice.</p>
+      </div>
+
+      <div class="journal-grid">
+
+        <div class="journal-card featured-card">
+          <div class="jc-img-placeholder featured-placeholder">
+            <div class="jp-label">Homage to Form</div>
+          </div>
+          <div class="jc-content">
+            <div class="jc-category">Homage to Form</div>
+            <h3 class="jc-title"><em>Form does not fade. It persists throughout time.</em></h3>
+            <p class="jc-excerpt">Introducing a new body of work from Vintage Tech. A series of sculptures shaped by our ongoing exploration of form, continuity, and contemporary making.</p>
+            <a href="https://www.vintagetech.com.au/3875/" target="_blank" class="jc-read">Read Essay <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="journal-card">
+          <div class="jc-img-placeholder secondary-placeholder">
+            <div class="jp-label">Smart Factory</div>
+          </div>
+          <div class="jc-content">
+            <div class="jc-category">Smart Factory Series</div>
+            <h3 class="jc-title">The Future Forged: AI, Heritage, and a Sustainable Tomorrow</h3>
+            <p class="jc-excerpt">How artificial intelligence and advanced manufacturing are redefining what it means to preserve the past while building toward the future.</p>
+            <a href="https://www.vintagetech.com.au" target="_blank" class="jc-read">Read <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="journal-card">
+          <div class="jc-img-placeholder tertiary-placeholder">
+            <div class="jp-label">Process</div>
+          </div>
+          <div class="jc-content">
+            <div class="jc-category">Material Stories</div>
+            <h3 class="jc-title">Recasting the Past: Innovative Approaches to Foundry Casting</h3>
+            <p class="jc-excerpt">The history behind casting techniques and how contemporary methods are allowing us to recreate what was once thought irreplaceable.</p>
+            <a href="https://www.vintagetech.com.au" target="_blank" class="jc-read">Read <span>→</span></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="journal-footer">
+        <a href="https://www.vintagetech.com.au" target="_blank" class="all-articles">All Articles &amp; Features <span>→</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       COMMISSION
+  ═══════════════════════════════════════ -->
+  <section class="commission-section" id="commission">
+    <div class="section-inner">
+
+      <div class="commission-inner">
+        <div class="commission-text">
+          <div class="comm-eyebrow">All Pathways Lead Here</div>
+          <h2 class="comm-title">Commission</h2>
+          <div class="comm-orn">
+            <span class="co-line"></span>
+            <span class="co-diamond"></span>
+            <span class="co-line"></span>
+          </div>
+          <p class="comm-body">Whether you are working on a heritage restoration, a bespoke design project, or a trade enquiry for the Editions programme — every conversation begins here.</p>
+          <p class="comm-body">Tell us what you are trying to make. What it should outlast. What story it should carry.</p>
+        </div>
+
+        <form class="commission-form" name="commission" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="commission">
+          <p class="hidden"><label>Do not fill this in if you are human: <input name="bot-field"></label></p>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Name</label>
+              <input type="text" name="name" class="form-input" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Enquiry Type</label>
+            <select name="enquiry-type" class="form-select">
+              <option value="">Select one</option>
+              <option value="studio">Studio — Design &amp; Creative Direction</option>
+              <option value="editions">Editions — Trade Registration</option>
+              <option value="factory">Factory — Engineering Commission</option>
+              <option value="automotive">Bespoke Automotive</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Your Brief</label>
+            <textarea name="brief" class="form-textarea" rows="5" placeholder="What are you trying to make? What should it outlast? What story should it carry?" required></textarea>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Organisation <span class="optional">(optional)</span></label>
+            <input type="text" name="organisation" class="form-input" placeholder="Business or studio name">
+          </div>
+
+          <button type="submit" class="form-submit">Send Enquiry <span>→</span></button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Vintage Tech</div>
+        <div class="footer-tag">Studio &amp; Factory</div>
+        <div class="footer-address">29 Newland St, Bondi Junction<br>Sydney NSW 2022, Australia</div>
+      </div>
+      <div class="footer-nav">
+        <div class="fn-col">
+          <div class="fn-head">Navigate</div>
+          <a href="#studio" class="fn-link">The Studio</a>
+          <a href="#editions" class="fn-link">The Editions</a>
+          <a href="#factory" class="fn-link">The Factory</a>
+          <a href="#journal" class="fn-link">Journal</a>
+          <a href="#commission" class="fn-link">Commission</a>
+        </div>
+        <div class="fn-col">
+          <div class="fn-head">Connect</div>
+          <a href="https://www.linkedin.com/company/vintage_tech/" target="_blank" class="fn-link">LinkedIn</a>
+          <a href="https://www.instagram.com/vintagetechengineer/" target="_blank" class="fn-link">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100091513103515" target="_blank" class="fn-link">Facebook</a>
+          <a href="mailto:info@vintagetech.com.au" class="fn-link">Email Us</a>
+        </div>
+        <div class="fn-col">
+          <div class="fn-head">Legal</div>
+          <a href="https://www.vintagetech.com.au/index.php/privacy-policy/" target="_blank" class="fn-link">Privacy Policy</a>
+          <a href="#commission" class="fn-link">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-base">
+      <div class="footer-copy">&copy; 2025 Vintage Tech. All rights reserved.</div>
+      <div class="footer-mantra-small">Reverse engineering the past for the future</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

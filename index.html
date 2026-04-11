@@ -1457,7 +1457,7 @@ a { text-decoration: none; color: inherit; }
   /* ── Diamond draw ── */
   function drawDiamond(canvas, angle) {
     var ctx = canvas.getContext('2d');
-    var W = 50, H = 38;
+    var W = 32, H = 24;
     var cx = canvas.width  / 2;
     var cy = canvas.height / 2;
     var fov = 280;
@@ -1567,12 +1567,12 @@ a { text-decoration: none; color: inherit; }
     ctx.fillStyle    = 'rgba(74,158,106,0.85)';
     ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('Studio', cx - 27, cy + 1);
+    ctx.fillText('Studio', cx - 17, cy + 1);
 
     /* Factory label — right half, condensed, static */
     ctx.font      = '500 9px "Barlow Condensed",sans-serif';
     ctx.fillStyle = 'rgba(106,156,196,0.85)';
-    ctx.fillText('Factory', cx + 28, cy + 1);
+    ctx.fillText('Factory', cx + 18, cy + 1);
   }
 
   /* ── Angle from pause-beat cycle ── */

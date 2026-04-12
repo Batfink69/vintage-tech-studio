@@ -354,8 +354,12 @@ a { text-decoration: none; color: inherit; }
   max-width: 560px; margin-bottom: 20px;
 }
 
-/* Editions header */
-.editions-crown { justify-content: center; }
+/* Section header animated mark canvas */
+.vt-sh-mark {
+  display: block;
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+}
 .editions-line { flex: 0 0 24px; }
 .editions-line-r { flex: 1; }
 .editions-diamond { border-color: rgba(184,154,106,.55); }
@@ -1150,7 +1154,7 @@ a { text-decoration: none; color: inherit; }
       <div class="vt-section-head studio-section-head">
         <div class="vt-sh-crown">
           <div class="vt-sh-line"></div>
-          <div class="vt-sh-diamond"></div>
+          <canvas class="vt-sh-mark" id="markStudio" width="40" height="40"></canvas>
           <div class="vt-sh-line"></div>
         </div>
         <div class="vt-sh-eyebrow studio-sh-eyebrow">
@@ -1250,9 +1254,9 @@ a { text-decoration: none; color: inherit; }
       <div class="vt-section-head editions-section-head">
         <div class="vt-sh-crown editions-crown">
           <div class="vt-sh-line editions-line"></div>
-          <div class="vt-sh-diamond editions-diamond"></div>
+          <canvas class="vt-sh-mark" id="markEditions" width="40" height="40"></canvas>
           <div class="vt-sh-label-centre">The Editions &nbsp;&middot;&nbsp; Art &amp; Design Programme</div>
-          <div class="vt-sh-diamond editions-diamond"></div>
+          <canvas class="vt-sh-mark" id="markEditions2" width="40" height="40"></canvas>
           <div class="vt-sh-line editions-line-r"></div>
         </div>
         <h2 class="vt-sh-title editions-sh-title"><strong>Homage</strong> to Form<br>&amp; Future Series</h2>
@@ -1317,7 +1321,7 @@ a { text-decoration: none; color: inherit; }
       <div class="vt-section-head factory-section-head">
         <div class="vt-sh-crown factory-crown">
           <div class="vt-sh-slash">//</div>
-          <div class="vt-sh-diamond factory-diamond"></div>
+          <canvas class="vt-sh-mark" id="markFactory" width="40" height="40"></canvas>
           <div class="vt-sh-line factory-line"></div>
           <div class="vt-sh-code">VT-FACTORY &nbsp;&middot;&nbsp; AU-07</div>
         </div>
@@ -1445,7 +1449,7 @@ a { text-decoration: none; color: inherit; }
 
       <div class="vt-section-head journal-section-head">
         <div class="vt-sh-crown journal-crown">
-          <div class="vt-sh-diamond journal-diamond"></div>
+          <canvas class="vt-sh-mark" id="markJournal" width="40" height="40"></canvas>
           <div class="vt-sh-line journal-line"></div>
           <div class="vt-sh-label-left">The Journal &nbsp;&middot;&nbsp; Ideas &amp; Making</div>
         </div>
@@ -1882,6 +1886,12 @@ a { text-decoration: none; color: inherit; }
     if (studioC)  studioC.style.opacity  = clamp((cur - 44) / 20, 0, 1);
     if (factoryC) factoryC.style.opacity = clamp((56 - cur) / 20, 0, 1);
 
+    /* Section header marks — all share same angle, pulse in sync */
+    var secAngle = getAngle(ts);
+    sectionMarks.forEach(function(m) {
+      drawSectionMark(m.canvas, m, secAngle);
+    });
+
     requestAnimationFrame(frame);
   }
 
@@ -1932,6 +1942,90 @@ a { text-decoration: none; color: inherit; }
         btn.style.pointerEvents = 'none';
       }
     });
+  }
+
+  /* ── Section header animated marks ── */
+  var sectionMarks = [
+    { id: 'markStudio',   sl: 'rgba(74,158,106,',  sr: 'rgba(74,158,106,',  sg: 'rgba(184,154,106,', bg: '#0c1a12' },
+    { id: 'markEditions', sl: 'rgba(184,154,106,', sr: 'rgba(184,154,106,', sg: 'rgba(184,154,106,', bg: '#0b0a08' },
+    { id: 'markEditions2',sl: 'rgba(184,154,106,', sr: 'rgba(184,154,106,', sg: 'rgba(184,154,106,', bg: '#0b0a08' },
+    { id: 'markFactory',  sl: 'rgba(74,158,106,',  sr: 'rgba(106,156,196,', sg: 'rgba(184,154,106,', bg: '#070910' },
+    { id: 'markJournal',  sl: 'rgba(237,232,222,', sr: 'rgba(237,232,222,', sg: 'rgba(184,154,106,', bg: '#09090a' }
+  ].map(function(m) {
+    return { canvas: document.getElementById(m.id), sl: m.sl, sr: m.sr, sg: m.sg, bg: m.bg };
+  }).filter(function(m) { return m.canvas; });
+
+  function drawSectionMark(canvas, opts, angle) {
+    var ctx = canvas.getContext('2d');
+    var W = 12, H = 9;
+    var cx = canvas.width / 2, cy = canvas.height / 2;
+    var fov = 100;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    var base = [
+      { x:  0, y: -H, z: 0 },
+      { x:  W, y:  0, z: 0 },
+      { x:  0, y:  H, z: 0 },
+      { x: -W, y:  0, z: 0 }
+    ];
+
+    var rot = base.map(function(v) { return rotY(v.x, v.y, v.z, angle); });
+    var prj = rot.map(function(p) { return proj(p, fov, cx, cy); });
+
+    /* Filled halves */
+    ctx.save();
+    ctx.beginPath(); ctx.rect(0, 0, cx, canvas.height); ctx.clip();
+    ctx.beginPath();
+    prj.forEach(function(p, i) { i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); });
+    ctx.closePath(); ctx.fillStyle = opts.sl + '0.09)'; ctx.fill();
+    ctx.restore();
+
+    ctx.save();
+    ctx.beginPath(); ctx.rect(cx, 0, canvas.width - cx, canvas.height); ctx.clip();
+    ctx.beginPath();
+    prj.forEach(function(p, i) { i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); });
+    ctx.closePath(); ctx.fillStyle = opts.sr + '0.07)'; ctx.fill();
+    ctx.restore();
+
+    /* Edges */
+    [
+      { f: 3, t: 0, col: opts.sl },
+      { f: 0, t: 1, col: opts.sr },
+      { f: 1, t: 2, col: opts.sr },
+      { f: 2, t: 3, col: opts.sl }
+    ].map(function(e) {
+      return { f: e.f, t: e.t, col: e.col, avgZ: (rot[e.f].z + rot[e.t].z) / 2 };
+    }).sort(function(a, b) {
+      return a.avgZ - b.avgZ;
+    }).forEach(function(e) {
+      var nz = (e.avgZ + W) / (2 * W);
+      var op = Math.max(0.14, Math.min(0.92, 0.16 + nz * 0.76));
+      ctx.beginPath();
+      ctx.moveTo(prj[e.f].x, prj[e.f].y);
+      ctx.lineTo(prj[e.t].x, prj[e.t].y);
+      ctx.strokeStyle = e.col + op.toFixed(2) + ')';
+      ctx.lineWidth = 0.8 + nz * 0.9;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    });
+
+    /* Gold axis */
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - H); ctx.lineTo(cx, cy + H);
+    ctx.strokeStyle = opts.sg + '0.42)';
+    ctx.lineWidth = 0.5; ctx.stroke();
+
+    /* Centre diamond */
+    var ds = 2;
+    ctx.save();
+    ctx.translate(cx, cy); ctx.rotate(Math.PI / 4);
+    ctx.fillStyle = opts.bg;
+    ctx.fillRect(-ds, -ds, ds * 2, ds * 2);
+    ctx.strokeStyle = opts.sg + '0.88)';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(-ds, -ds, ds * 2, ds * 2);
+    ctx.restore();
   }
 
   /* ── Start after fonts load ── */

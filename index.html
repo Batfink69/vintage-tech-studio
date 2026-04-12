@@ -135,31 +135,33 @@ a { text-decoration: none; color: inherit; }
 }
 .factory-grid {
   position: absolute; inset: 0;
-  background-image: url('assets/placeholder-factory.png');
+  background-image:
     repeating-linear-gradient(0deg, rgba(106,156,196,.04) 0, rgba(106,156,196,.04) 1px, transparent 1px, transparent 28px),
     repeating-linear-gradient(90deg, rgba(106,156,196,.04) 0, rgba(106,156,196,.04) 1px, transparent 1px, transparent 28px);
 }
 .factory-img {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
+  background-repeat: no-repeat;
   opacity: .18;
 }
 
 .hero-studio {
   position: absolute; inset: 0;
-  background: var(--ink-warm);
+  background: var(--s-dark);
   clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
   transition: none;
 }
 .studio-lines {
   position: absolute; inset: 0;
-  background-image: url('assets/placeholder-studio.png');
-    repeating-linear-gradient(0deg, rgba(74,158,106,.025) 0, rgba(74,158,106,.025) 1px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(90deg, rgba(74,158,106,.012) 0, rgba(74,158,106,.012) 1px, transparent 1px, transparent 80px);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(74,158,106,.045) 0, rgba(74,158,106,.045) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(74,158,106,.022) 0, rgba(74,158,106,.022) 1px, transparent 1px, transparent 80px);
 }
 .studio-img {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
+  background-repeat: no-repeat;
   opacity: .18;
 }
 
@@ -257,6 +259,112 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--ff-mono); font-size: 7px; letter-spacing: .18em;
   color: var(--white-dim); text-transform: uppercase; white-space: nowrap;
   transition: opacity .5s;
+}
+
+/* ── Diamond Section Header System ── */
+.vt-section-head { margin-bottom: 52px; }
+
+.vt-sh-crown {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.vt-sh-line {
+  flex: 1; height: 1px;
+  background: rgba(184,154,106,.2);
+}
+.vt-sh-diamond {
+  width: 7px; height: 7px; flex-shrink: 0;
+  border: 1px solid rgba(184,154,106,.6);
+  transform: rotate(45deg);
+}
+.studio-section-head .vt-sh-diamond { background: var(--s-dark); }
+.editions-section-head .vt-sh-diamond { background: rgba(11,10,8,1); }
+
+.vt-sh-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--ff-cond);
+  font-size: 7px; letter-spacing: .32em; text-transform: uppercase;
+  font-weight: 400; margin-bottom: 14px;
+}
+.studio-sh-eyebrow { color: rgba(74,158,106,.65); }
+.vt-sh-eyebrow-rule {
+  display: block; width: 16px; height: 1px;
+  background: rgba(74,158,106,.3);
+}
+
+.vt-sh-title {
+  font-family: var(--ff-serif);
+  font-size: 52px; font-weight: 300;
+  color: var(--white); line-height: 1.05;
+  margin-bottom: 16px;
+}
+.studio-sh-title em { font-style: italic; color: rgba(74,158,106,.75); }
+
+.vt-sh-sub {
+  font-family: var(--ff-body);
+  font-size: 12px; font-weight: 300;
+  color: var(--white-mid); line-height: 1.85;
+  max-width: 560px; margin-bottom: 20px;
+}
+
+/* Editions header */
+.editions-crown { justify-content: center; }
+.editions-line { flex: 0 0 24px; }
+.editions-line-r { flex: 1; }
+.editions-diamond { border-color: rgba(184,154,106,.55); }
+.editions-diamond { background: rgba(11,10,8,1); }
+.vt-sh-label-centre {
+  font-family: var(--ff-cond);
+  font-size: 7px; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(184,154,106,.6); font-weight: 300; white-space: nowrap;
+}
+.editions-sh-title {
+  font-size: 48px; font-style: italic;
+}
+.editions-sh-title strong {
+  font-style: normal; font-weight: 400;
+  color: rgba(184,154,106,.7);
+}
+.editions-sh-sub { color: rgba(237,232,222,.38); }
+
+/* Factory header */
+.factory-section-head .vt-sh-title {
+  font-family: var(--ff-cond) !important;
+  font-size: 60px; font-weight: 300;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.factory-sh-sub { color: rgba(237,232,222,.38); }
+.vt-sh-slash {
+  font-family: var(--ff-mono); font-size: 11px;
+  color: rgba(106,156,196,.5); letter-spacing: -.05em; flex-shrink: 0;
+}
+.factory-diamond {
+  border-color: rgba(106,156,196,.55);
+  background: var(--ink-cold);
+}
+.factory-line { flex: 1; background: rgba(106,156,196,.15); }
+.vt-sh-code {
+  font-family: var(--ff-mono); font-size: 7px;
+  letter-spacing: .18em; color: rgba(106,156,196,.4);
+  white-space: nowrap; flex-shrink: 0;
+}
+
+/* Journal header */
+.journal-section-head .vt-sh-title {
+  font-size: 48px;
+}
+.journal-sh-title em { font-style: italic; color: rgba(237,232,222,.5); }
+.journal-sh-sub { color: rgba(237,232,222,.35); }
+.journal-crown { justify-content: flex-start; }
+.journal-diamond {
+  border-color: rgba(237,232,222,.25);
+  background: var(--ink);
+}
+.journal-line { flex: 0 0 28px; }
+.vt-sh-label-left {
+  font-family: var(--ff-cond);
+  font-size: 7px; letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(237,232,222,.3); font-weight: 300;
 }
 
 /* ── Bridge Band ── */
@@ -816,9 +924,13 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .nav-inner { grid-template-columns: 1fr auto; }
+  .nav-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 20px;
+  }
   .nav-left, .nav-right { display: none; }
-  .nav-inner { justify-content: center; }
   .hero-content { max-width: 200px; }
   .studio-headline { font-size: 40px; }
   .factory-headline { font-size: 42px; }
@@ -838,6 +950,9 @@ a { text-decoration: none; color: inherit; }
   .auto-inner { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-nav { flex-wrap: wrap; gap: 32px; }
+  .hero-mantra { width: 90%; text-align: center; }
+  .mantra-past { white-space: normal; font-size: 16px; text-align: center; }
+  .hero-diamond-canvas { left: 50% !important; top: 50% !important; }
 }
 
 @media (max-width: 600px) {
@@ -849,7 +964,13 @@ a { text-decoration: none; color: inherit; }
   .form-row { grid-template-columns: 1fr; }
   .section-title { font-size: 36px; }
   .comm-title { font-size: 48px; }
-  .mantra-past { font-size: 15px; }
+  .mantra-past { font-size: 13px; }
+  .studio-headline { font-size: 34px; }
+  .factory-headline { font-size: 36px; }
+  .bridge-centre { padding: 16px; }
+  .bridge-studio, .bridge-factory { padding: 16px 20px; }
+  .hero { min-height: 500px; }
+  .hero-hint { display: none; }
 }
 </style>
 </head>
@@ -888,13 +1009,13 @@ a { text-decoration: none; color: inherit; }
     <!-- Factory world — right / base layer -->
     <div class="hero-factory" id="heroFactory">
       <div class="factory-grid"></div>
-      <div class="factory-img" style="background-image:url('assets/images/placeholder-factory.jpg')"></div>
+      <div class="factory-img" style="background-image:url('assets/images/placeholder-factory.png')"></div>
     </div>
 
     <!-- Studio world — left / clip layer -->
     <div class="hero-studio" id="heroStudio">
       <div class="studio-lines"></div>
-      <div class="studio-img" style="background-image:url('assets/images/placeholder-studio.jpg')"></div>
+      <div class="studio-img" style="background-image:url('assets/images/placeholder-studio.png')"></div>
     </div>
 
     <!-- Dividing line -->
@@ -970,17 +1091,22 @@ a { text-decoration: none; color: inherit; }
   <section class="world-section studio-section" id="studio">
     <div class="section-inner">
 
-      <div class="section-head">
-        <div class="section-num">I</div>
-        <div class="section-head-text">
-          <div class="section-eyebrow studio-eyebrow-text">The Studio</div>
-          <h2 class="section-title studio-title">Where Form,<br>Vision &amp; <em>Heritage</em><br>Are Explored</h2>
+      <div class="vt-section-head studio-section-head">
+        <div class="vt-sh-crown">
+          <div class="vt-sh-line"></div>
+          <div class="vt-sh-diamond"></div>
+          <div class="vt-sh-line"></div>
         </div>
-        <div class="section-manifesto">
-          <blockquote class="studio-quote">
-            "We do not start with what it should look like. We start with what it should <strong>mean</strong> — and let form follow from there."
-          </blockquote>
+        <div class="vt-sh-eyebrow studio-sh-eyebrow">
+          <span class="vt-sh-eyebrow-rule"></span>
+          The Studio &nbsp;&middot;&nbsp; Creative Direction
+          <span class="vt-sh-eyebrow-rule"></span>
         </div>
+        <h2 class="vt-sh-title studio-sh-title">Where Form,<br>Vision &amp; <em>Heritage</em><br>Are Explored</h2>
+        <p class="vt-sh-sub">We explore objects and ideas at the intersection of material heritage and narrative precision — each project an act of slow thinking before it becomes a thing made.</p>
+        <blockquote class="studio-quote">
+          "We do not start with what it should look like. We start with what it should <strong>mean</strong> — and let form follow from there."
+        </blockquote>
       </div>
 
       <div class="disciplines-grid">
@@ -1065,16 +1191,17 @@ a { text-decoration: none; color: inherit; }
   <section class="world-section editions-section" id="editions">
     <div class="section-inner">
 
-      <div class="section-head editions-head">
-        <div class="section-num editions-num">II</div>
-        <div class="section-head-text">
-          <div class="section-eyebrow editions-eyebrow-text">The Editions</div>
-          <h2 class="section-title editions-title"><em>Homage to Form</em><br>&amp; Future Series</h2>
+      <div class="vt-section-head editions-section-head">
+        <div class="vt-sh-crown editions-crown">
+          <div class="vt-sh-line editions-line"></div>
+          <div class="vt-sh-diamond editions-diamond"></div>
+          <div class="vt-sh-label-centre">The Editions &nbsp;&middot;&nbsp; Art &amp; Design Programme</div>
+          <div class="vt-sh-diamond editions-diamond"></div>
+          <div class="vt-sh-line editions-line-r"></div>
         </div>
-        <div class="editions-intro">
-          <p class="editions-intro-text">An ongoing programme of art and design objects. Each series a numbered edition — thematically distinct, materially considered, fabricated at Vintage Tech.</p>
-          <a href="#commission" class="editions-trade-link">Trade Enquiries <span>→</span></a>
-        </div>
+        <h2 class="vt-sh-title editions-sh-title"><strong>Homage</strong> to Form<br>&amp; Future Series</h2>
+        <p class="vt-sh-sub editions-sh-sub">An ongoing programme of art and design objects. Each series a numbered edition — thematically distinct, materially considered, fabricated at Vintage Tech.</p>
+        <a href="#commission" class="editions-trade-link">Trade Enquiries <span>→</span></a>
       </div>
 
       <!-- Series I -->
@@ -1131,15 +1258,15 @@ a { text-decoration: none; color: inherit; }
     <div class="factory-grid-bg"></div>
     <div class="section-inner">
 
-      <div class="section-head factory-head">
-        <div class="section-num factory-num">III</div>
-        <div class="section-head-text">
-          <div class="section-eyebrow factory-eyebrow-text">// The Factory</div>
-          <h2 class="section-title factory-title">Idea<br>Meets<br><span class="factory-accent">Iron.</span></h2>
+      <div class="vt-section-head factory-section-head">
+        <div class="vt-sh-crown factory-crown">
+          <div class="vt-sh-slash">//</div>
+          <div class="vt-sh-diamond factory-diamond"></div>
+          <div class="vt-sh-line factory-line"></div>
+          <div class="vt-sh-code">VT-FACTORY &nbsp;&middot;&nbsp; AU-07</div>
         </div>
-        <div class="factory-intro">
-          <p class="factory-intro-text">Where the Studio's vision meets the discipline of manufacture — toleranced, tested, built to outlast the era that imagined it.</p>
-        </div>
+        <h2 class="vt-sh-title factory-sh-title">Idea<br>Meets<br><span class="factory-accent">Iron.</span></h2>
+        <p class="vt-sh-sub factory-sh-sub">Where the Studio's vision meets the discipline of manufacture — toleranced, tested, built to outlast the era that imagined it.</p>
       </div>
 
       <!-- Object as Thread — Six Service Sequence -->
@@ -1260,10 +1387,14 @@ a { text-decoration: none; color: inherit; }
   <section class="journal-section" id="journal">
     <div class="section-inner">
 
-      <div class="journal-head">
-        <div class="journal-eyebrow">The Journal</div>
-        <h2 class="journal-title">Ideas, Material Culture<br>&amp; <em>The Act of Making</em></h2>
-        <p class="journal-intro">Long-form writing on art history, heritage manufacture, AI and design, and the stories behind specific commissions. Vintage Tech's public editorial voice.</p>
+      <div class="vt-section-head journal-section-head">
+        <div class="vt-sh-crown journal-crown">
+          <div class="vt-sh-diamond journal-diamond"></div>
+          <div class="vt-sh-line journal-line"></div>
+          <div class="vt-sh-label-left">The Journal &nbsp;&middot;&nbsp; Ideas &amp; Making</div>
+        </div>
+        <h2 class="vt-sh-title journal-sh-title">Ideas, Material Culture<br>&amp; <em>The Act of Making</em></h2>
+        <p class="vt-sh-sub journal-sh-sub">Long-form writing on art history, heritage manufacture, AI and design, and the stories behind specific commissions. Vintage Tech's public editorial voice.</p>
       </div>
 
       <div class="journal-grid">

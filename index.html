@@ -261,6 +261,53 @@ a { text-decoration: none; color: inherit; }
   transition: opacity .5s;
 }
 
+/* ── Scroll indicator ── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity .6s ease;
+  cursor: pointer;
+  padding: 12px;
+}
+.scroll-indicator.visible { opacity: 1; }
+.scroll-indicator.hidden  { opacity: 0; pointer-events: none; }
+
+.si-diamond {
+  width: 8px; height: 8px;
+  border: 1px solid rgba(184,154,106,.65);
+  background: transparent;
+  transform: rotate(45deg);
+  animation: si-pulse 2s ease-in-out infinite;
+}
+.si-chevron {
+  animation: si-bounce 2s ease-in-out infinite;
+}
+
+@keyframes si-pulse {
+  0%, 100% { border-color: rgba(184,154,106,.65); }
+  50%       { border-color: rgba(184,154,106,.25); }
+}
+@keyframes si-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(3px); }
+}
+
+/* Show scroll indicator on mobile, hide hint text on mobile */
+@media (max-width: 960px) {
+  .hero-hint { display: none; }
+  .scroll-indicator { opacity: 1; }
+  .scroll-indicator.visible { opacity: 1; }
+}
+/* Hide on desktop — hint text serves that purpose */
+@media (min-width: 961px) {
+  .scroll-indicator { display: none; }
+}
+
 /* ── Diamond Section Header System ── */
 .vt-section-head { margin-bottom: 52px; }
 
@@ -1059,6 +1106,16 @@ a { text-decoration: none; color: inherit; }
 
     <div class="hero-hint" id="heroHint">&larr;&nbsp; move to explore &nbsp;&rarr;</div>
 
+    <!-- Scroll indicator — mobile tap target -->
+    <a href="#bridge" class="scroll-indicator" id="scrollIndicator" aria-label="Scroll down">
+      <div class="si-diamond"></div>
+      <div class="si-chevron">
+        <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1L7 7L13 1" stroke="rgba(184,154,106,0.7)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </a>
+
   </section>
 
   <!-- ═══════════════════════════════════════
@@ -1754,18 +1811,41 @@ a { text-decoration: none; color: inherit; }
       }, 1200);
     });
 
+    /* Touch start — record origin to detect swipe direction */
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var touchIsHorizontal = null;
+
+    hero.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchIsHorizontal = null;
+    }, { passive: true });
+
     hero.addEventListener('touchmove', function (e) {
-      e.preventDefault();
-      var r = hero.getBoundingClientRect();
-      var t = e.touches[0];
-      tgt  = clamp((t.clientX - r.left) / r.width  * 100, 12, 88);
-      tgtY = clamp((t.clientY - r.top)  / r.height * 100, 5, 95);
-      mouseOn = true;
+      var dx = Math.abs(e.touches[0].clientX - touchStartX);
+      var dy = Math.abs(e.touches[0].clientY - touchStartY);
+
+      /* Determine direction on first move with enough distance */
+      if (touchIsHorizontal === null && (dx > 6 || dy > 6)) {
+        touchIsHorizontal = dx > dy;
+      }
+
+      /* Only capture horizontal swipes — let vertical pass to browser scroll */
+      if (touchIsHorizontal) {
+        e.preventDefault();
+        var r = hero.getBoundingClientRect();
+        var t = e.touches[0];
+        tgt  = clamp((t.clientX - r.left) / r.width  * 100, 12, 88);
+        tgtY = clamp((t.clientY - r.top)  / r.height * 100, 5, 95);
+        mouseOn = true;
+      }
     }, { passive: false });
 
     hero.addEventListener('touchend', function () {
       tgt = 50;
       mouseOn = false;
+      touchIsHorizontal = null;
     });
   }
 
@@ -1805,12 +1885,24 @@ a { text-decoration: none; color: inherit; }
     requestAnimationFrame(frame);
   }
 
-  /* ── Nav scroll tint ── */
-  if (nav) {
+  /* ── Nav scroll tint + scroll indicator ── */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  if (nav || scrollIndicator) {
     window.addEventListener('scroll', function () {
-      nav.style.borderBottomColor = window.scrollY > 60
-        ? 'rgba(237,232,222,0.14)'
-        : 'rgba(237,232,222,0.07)';
+      if (nav) {
+        nav.style.borderBottomColor = window.scrollY > 60
+          ? 'rgba(237,232,222,0.14)'
+          : 'rgba(237,232,222,0.07)';
+      }
+      if (scrollIndicator) {
+        var heroHeight = hero ? hero.offsetHeight : window.innerHeight;
+        if (window.scrollY > heroHeight * 0.3) {
+          scrollIndicator.classList.add('hidden');
+          scrollIndicator.classList.remove('visible');
+        } else {
+          scrollIndicator.classList.remove('hidden');
+        }
+      }
     }, { passive: true });
   }
 

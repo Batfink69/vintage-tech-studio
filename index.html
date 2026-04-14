@@ -1006,21 +1006,101 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 600px) {
-  .section-inner { padding: 48px 20px; }
+
+  /* ── Layout ── */
+  .section-inner { padding: 44px 20px; }
   .disciplines-grid { grid-template-columns: 1fr; }
   .process-strip { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .specs-bar { grid-template-columns: repeat(2,1fr); }
   .form-row { grid-template-columns: 1fr; }
-  .section-title { font-size: 36px; }
-  .comm-title { font-size: 48px; }
-  .mantra-past { font-size: 13px; }
-  .studio-headline { font-size: 34px; }
-  .factory-headline { font-size: 36px; }
   .bridge-centre { padding: 16px; }
   .bridge-studio, .bridge-factory { padding: 16px 20px; }
   .hero { min-height: 500px; }
   .hero-hint { display: none; }
+
+  /* ── Hero type ── */
+  .studio-headline  { font-size: 36px; }
+  .factory-headline { font-size: 38px; }
+  .mantra-past      { font-size: 15px; }
+  .mantra-future    { font-size: 11px; letter-spacing: .22em; }
+  .hc-body          { font-size: 13px; }
+
+  /* ── Section titles ── */
+  .vt-sh-title         { font-size: 36px; }
+  .studio-sh-title     { font-size: 36px; }
+  .editions-sh-title   { font-size: 34px; }
+  .factory-sh-title    { font-size: 40px; }
+  .journal-sh-title    { font-size: 34px; }
+  .comm-title          { font-size: 44px; }
+
+  /* ── Section subtext — raise from 12px to 15px ── */
+  .vt-sh-sub          { font-size: 15px; line-height: 1.75; }
+  .studio-quote       { font-size: 15px; }
+  .factory-sh-sub     { font-size: 15px; }
+  .editions-sh-sub    { font-size: 15px; }
+  .journal-sh-sub     { font-size: 15px; }
+
+  /* ── Body text throughout — raise to 15px minimum ── */
+  .dc-desc            { font-size: 13px; line-height: 1.75; }
+  .ps-desc            { font-size: 13px; line-height: 1.75; }
+  .sc-desc            { font-size: 13px; line-height: 1.75; }
+  .series-body p      { font-size: 14px; line-height: 1.85; }
+  .auto-desc          { font-size: 14px; }
+  .jc-excerpt         { font-size: 13px; line-height: 1.75; }
+  .comm-body          { font-size: 15px; line-height: 1.85; }
+  .bridge-desc        { font-size: 13px; }
+  .footer-address     { font-size: 13px; }
+  .editions-intro-text { font-size: 14px; }
+  .factory-intro-text  { font-size: 14px; }
+
+  /* ── Card names and labels — raise to 14px minimum ── */
+  .dc-name            { font-size: 16px; }
+  .ps-name            { font-size: 16px; }
+  .sc-name            { font-size: 13px; }
+  .jc-title           { font-size: 16px; }
+  .featured-card .jc-title { font-size: 18px; }
+  .series-title       { font-size: 28px; }
+  .auto-title         { font-size: 28px; }
+  .journal-title      { font-size: 34px; }
+
+  /* ── Labels — raise 7px/8px/9px to 11px minimum ── */
+  .vt-sh-eyebrow      { font-size: 11px; }
+  .dc-num             { font-size: 11px; }
+  .ps-num             { font-size: 11px; }
+  .sc-num             { font-size: 11px; }
+  .sc-tag             { font-size: 11px; }
+  .factory-tag        { font-size: 11px; }
+  .spec-label         { font-size: 11px; }
+  .spec-val           { font-size: 22px; }
+  .series-eyebrow     { font-size: 11px; }
+  .sd-label           { font-size: 11px; }
+  .sd-value           { font-size: 12px; }
+  .auto-label         { font-size: 11px; }
+  .ai-label           { font-size: 11px; }
+  .ai-item            { font-size: 11px; }
+  .jc-category        { font-size: 11px; }
+  .bridge-world-label { font-size: 11px; }
+  .vt-sh-label-centre { font-size: 11px; }
+  .vt-sh-label-left   { font-size: 11px; }
+  .vt-sh-code         { font-size: 11px; }
+  .vt-sh-slash        { font-size: 13px; }
+  .fn-head            { font-size: 11px; }
+  .fn-link            { font-size: 13px; }
+  .footer-copy        { font-size: 11px; }
+  .footer-mantra-small { font-size: 13px; }
+  .comm-eyebrow       { font-size: 11px; }
+  .brand-tag          { font-size: 9px; }
+  .bridge-mark        { font-size: 12px; }
+  .bridge-location    { font-size: 9px; }
+
+  /* ── Forms — mobile friendly ── */
+  .form-input, .form-select, .form-textarea { font-size: 16px; padding: 14px; }
+  .form-label         { font-size: 11px; }
+  .form-submit        { font-size: 12px; padding: 16px 28px; }
+
+  /* ── Nav ── */
+  .brand-name         { font-size: 14px; letter-spacing: .3em; }
 }
 </style>
 </head>

@@ -760,6 +760,124 @@ a { text-decoration: none; color: inherit; }
   padding: 6px 14px; white-space: nowrap;
 }
 
+/* ── Editions Object Grid ── */
+.objects-head {
+  display: flex; align-items: center; gap: 16px;
+  margin: 48px 0 28px; padding-top: 40px;
+  border-top: 1px solid var(--gold-hair);
+}
+.oh-label {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); white-space: nowrap; flex-shrink: 0;
+}
+.oh-rule { flex: 1; height: 1px; background: var(--gold-hair); }
+.oh-count {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .14em; color: var(--white-dim);
+  white-space: nowrap; flex-shrink: 0;
+}
+
+.objects-grid {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  gap: 1px; background: var(--gold-hair);
+  margin-bottom: 48px;
+}
+.object-card {
+  background: rgba(11,10,8,.98);
+  border: 1px solid var(--gold-hair);
+  display: flex; flex-direction: column;
+  transition: border-color .25s;
+}
+.object-card:hover { border-color: var(--gold-dim); }
+
+.oc-img {
+  width: 100%; aspect-ratio: 1;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.oc-img-placeholder { background: rgba(184,154,106,.04); }
+.oc-num {
+  font-family: var(--ff-serif); font-size: 32px;
+  font-weight: 300; color: rgba(184,154,106,.18);
+  font-style: italic;
+}
+
+.oc-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.oc-title {
+  font-family: var(--ff-serif); font-size: 15px;
+  font-weight: 400; color: var(--white);
+}
+.oc-title em { font-style: italic; color: rgba(184,154,106,.7); }
+.oc-desc {
+  font-family: var(--ff-body); font-size: 12px;
+  font-weight: 300; color: var(--white-dim); line-height: 1.65;
+}
+.oc-meta { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.oc-label {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(184,154,106,.45);
+  border: 1px solid var(--gold-hair); padding: 2px 7px;
+}
+
+/* Trade pathway */
+.trade-pathway {
+  border: 1px solid var(--gold-hair);
+  background: rgba(184,154,106,.03);
+  margin-bottom: 40px;
+}
+.tp-inner {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 0;
+}
+.tp-text-col {
+  padding: 36px 40px;
+  border-right: 1px solid var(--gold-hair);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.tp-eyebrow {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold);
+}
+.tp-title {
+  font-family: var(--ff-serif); font-size: 32px;
+  font-weight: 300; color: var(--white); line-height: 1.1;
+}
+.tp-title em { font-style: italic; color: rgba(184,154,106,.7); }
+.tp-desc {
+  font-family: var(--ff-body); font-size: 14px;
+  font-weight: 300; color: var(--white-mid); line-height: 1.85;
+  max-width: 480px;
+}
+.tp-cta-col {
+  padding: 36px 40px;
+  display: flex; flex-direction: column;
+  justify-content: space-between; gap: 24px;
+  min-width: 240px;
+}
+.tp-qualifiers { display: flex; flex-direction: column; gap: 12px; }
+.tp-q-item { display: flex; align-items: center; gap: 12px; }
+.tp-q-diamond {
+  width: 6px; height: 6px; flex-shrink: 0;
+  border: 1px solid var(--gold-dim); transform: rotate(45deg);
+}
+.tp-q-text {
+  font-family: var(--ff-cond); font-size: 13px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--white-mid); font-weight: 400;
+}
+.tp-cta {
+  font-family: var(--ff-cond); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold-dim);
+  padding: 12px 20px; display: inline-flex;
+  align-items: center; gap: 8px; font-weight: 500;
+  transition: all .25s; align-self: flex-start;
+}
+.tp-cta:hover { background: var(--gold-dim); }
+
 /* ── Factory Section ── */
 .factory-section { background: var(--ink-cold); position: relative; }
 .factory-grid-bg {
@@ -1108,6 +1226,10 @@ a { text-decoration: none; color: inherit; }
   .disciplines-grid { grid-template-columns: repeat(2,1fr); }
   .process-strip { grid-template-columns: repeat(2,1fr); }
   .studio-work-grid { grid-template-columns: 1fr; }
+  .objects-grid { grid-template-columns: repeat(2,1fr); }
+  .tp-inner { grid-template-columns: 1fr; }
+  .tp-text-col { border-right: none; border-bottom: 1px solid var(--gold-hair); padding: 28px 24px; }
+  .tp-cta-col { padding: 24px; }
   .section-head { grid-template-columns: 40px 1fr; }
   .section-head .section-manifesto,
   .section-head .editions-intro,
@@ -1541,7 +1663,7 @@ a { text-decoration: none; color: inherit; }
 
       <!-- Series I -->
       <div class="series-block">
-        <div class="series-label">Series I</div>
+        <div class="series-label">Series I — Homage to Form</div>
         <div class="series-inner">
           <div class="series-image-col">
             <div class="series-img-placeholder">
@@ -1555,16 +1677,20 @@ a { text-decoration: none; color: inherit; }
             <div class="series-body">
               <p>Form does not fade. It persists throughout time.</p>
               <p>Long after a maker is gone, form remains — carrying forward decisions shaped by material, constraint, and intent. This is how knowledge moves across generations: not through instruction, but through what endures.</p>
-              <p>At Vintage Tech, reverse engineering the past begins with form.</p>
+              <p>At Vintage Tech, reverse engineering the past begins with form. This series exists at the intersection of art history, artificial intelligence, and the precision of contemporary making.</p>
             </div>
             <div class="series-details">
               <div class="sd-item">
                 <div class="sd-label">Medium</div>
-                <div class="sd-value">3D Fabricated, Hand-finished</div>
+                <div class="sd-value">3D Fabricated, Hand-finished, Weighted</div>
               </div>
               <div class="sd-item">
                 <div class="sd-label">Programme</div>
                 <div class="sd-value">Edition I — Ongoing</div>
+              </div>
+              <div class="sd-item">
+                <div class="sd-label">Objects</div>
+                <div class="sd-value">Five pieces — Series I</div>
               </div>
               <div class="sd-item">
                 <div class="sd-label">Available</div>
@@ -1572,6 +1698,120 @@ a { text-decoration: none; color: inherit; }
               </div>
             </div>
             <a href="#commission" class="series-cta">Register Trade Interest <span>→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Object grid — five pieces -->
+      <div class="objects-head">
+        <div class="oh-label">The Objects</div>
+        <div class="oh-rule"></div>
+        <div class="oh-count">Series I &nbsp;&middot;&nbsp; 5 pieces</div>
+      </div>
+
+      <div class="objects-grid">
+
+        <div class="object-card">
+          <div class="oc-img oc-img-placeholder">
+            <div class="oc-num">I</div>
+          </div>
+          <div class="oc-body">
+            <div class="oc-title"><em>Object I</em></div>
+            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
+            <div class="oc-meta">
+              <span class="oc-label">3D Fabricated</span>
+              <span class="oc-label">Hand-finished</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="object-card">
+          <div class="oc-img oc-img-placeholder">
+            <div class="oc-num">II</div>
+          </div>
+          <div class="oc-body">
+            <div class="oc-title"><em>Object II</em></div>
+            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
+            <div class="oc-meta">
+              <span class="oc-label">3D Fabricated</span>
+              <span class="oc-label">Hand-finished</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="object-card">
+          <div class="oc-img oc-img-placeholder">
+            <div class="oc-num">III</div>
+          </div>
+          <div class="oc-body">
+            <div class="oc-title"><em>Object III</em></div>
+            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
+            <div class="oc-meta">
+              <span class="oc-label">3D Fabricated</span>
+              <span class="oc-label">Hand-finished</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="object-card">
+          <div class="oc-img oc-img-placeholder">
+            <div class="oc-num">IV</div>
+          </div>
+          <div class="oc-body">
+            <div class="oc-title"><em>Object IV</em></div>
+            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
+            <div class="oc-meta">
+              <span class="oc-label">3D Fabricated</span>
+              <span class="oc-label">Hand-finished</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="object-card">
+          <div class="oc-img oc-img-placeholder">
+            <div class="oc-num">V</div>
+          </div>
+          <div class="oc-body">
+            <div class="oc-title"><em>Object V</em></div>
+            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
+            <div class="oc-meta">
+              <span class="oc-label">3D Fabricated</span>
+              <span class="oc-label">Hand-finished</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trade pathway -->
+      <div class="trade-pathway">
+        <div class="tp-inner">
+          <div class="tp-text-col">
+            <div class="tp-eyebrow">Wholesale Enquiries</div>
+            <h3 class="tp-title">Available to <em>Trade</em></h3>
+            <p class="tp-desc">The Homage to Form series is available exclusively to wholesale buyers — interior designers, design retailers, gallery gift shops, and homewares boutiques whose clients value objects made with intelligence and care.</p>
+            <p class="tp-desc">Pricing, minimum order quantities, and catalogue information are available upon registration. All enquiries are reviewed individually.</p>
+          </div>
+          <div class="tp-cta-col">
+            <div class="tp-qualifiers">
+              <div class="tp-q-item">
+                <div class="tp-q-diamond"></div>
+                <div class="tp-q-text">Interior Designers</div>
+              </div>
+              <div class="tp-q-item">
+                <div class="tp-q-diamond"></div>
+                <div class="tp-q-text">Design Retailers</div>
+              </div>
+              <div class="tp-q-item">
+                <div class="tp-q-diamond"></div>
+                <div class="tp-q-text">Gallery Gift Shops</div>
+              </div>
+              <div class="tp-q-item">
+                <div class="tp-q-diamond"></div>
+                <div class="tp-q-text">Homewares Boutiques</div>
+              </div>
+            </div>
+            <a href="#commission" class="tp-cta">Register Trade Interest <span>→</span></a>
           </div>
         </div>
       </div>

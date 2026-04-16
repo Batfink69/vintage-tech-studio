@@ -956,10 +956,65 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.75; font-weight: 300; margin-bottom: 12px;
 }
 .sc-tag {
-  font-family: var(--ff-mono); font-size: 7px; letter-spacing: .15em;
+  font-family: var(--ff-mono); font-size: 11px; letter-spacing: .15em;
   text-transform: uppercase; color: rgba(74,158,106,.5);
 }
 .factory-tag { color: var(--f-glow) !important; }
+
+/* Service card image placeholder */
+.sc-img {
+  width: 100%; height: 160px;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid rgba(237,232,222,.05);
+}
+.sc-img-placeholder { background: rgba(11,18,14,.95); }
+.factory-service .sc-img-placeholder { background: rgba(7,9,16,.95); }
+
+/* Distinct tints per discipline */
+.sc-img-scan   { background: rgba(74,158,106,.06) !important; }
+.sc-img-reveng { background: rgba(74,158,106,.04) !important; }
+.sc-img-cad    { background: rgba(74,158,106,.03) !important; }
+.sc-img-print  { background: rgba(106,156,196,.05) !important; }
+.sc-img-cnc    { background: rgba(106,156,196,.07) !important; }
+.sc-img-cast   { background: rgba(106,156,196,.04) !important; }
+
+.sc-img-label {
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: 13px; color: rgba(237,232,222,.15);
+  position: absolute; bottom: 10px; left: 12px;
+}
+.sc-img-badge {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 8px;
+  display: flex; align-items: center; gap: 5px;
+}
+.studio-badge {
+  border: 1px solid rgba(74,158,106,.2);
+  color: rgba(74,158,106,.55);
+}
+.factory-badge {
+  border: 1px solid rgba(106,156,196,.2);
+  color: rgba(106,156,196,.55);
+}
+
+/* Service card footer row */
+.sc-card-footer {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-top: 8px;
+}
+.sc-article-link {
+  font-family: var(--ff-cond); font-size: 11px;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(74,158,106,.55); font-weight: 400;
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: color .25s;
+}
+.sc-article-link:hover { color: rgba(74,158,106,.85); }
+.factory-article { color: rgba(106,156,196,.55) !important; }
+.factory-article:hover { color: rgba(106,156,196,.85) !important; }
 
 .specs-bar {
   display: grid; grid-template-columns: repeat(4,1fr);
@@ -1856,22 +1911,44 @@ a { text-decoration: none; color: inherit; }
 
           <!-- Studio services -->
           <div class="service-card studio-service">
+            <div class="sc-img sc-img-placeholder sc-img-scan">
+              <div class="sc-img-label">3D Scanning</div>
+              <div class="sc-img-badge studio-badge">Scan</div>
+            </div>
             <div class="sc-num">01</div>
             <div class="sc-name">3D Scanning</div>
             <div class="sc-desc">Capturing what still exists of the original object with precision point-cloud technology.</div>
-            <div class="sc-tag">Capture</div>
+            <div class="sc-card-footer">
+              <div class="sc-tag">Capture</div>
+              <a href="https://www.vintagetech.com.au/2422/" target="_blank" class="sc-article-link">Read Article <span>→</span></a>
+            </div>
           </div>
+
           <div class="service-card studio-service">
+            <div class="sc-img sc-img-placeholder sc-img-reveng">
+              <div class="sc-img-label">Reverse Engineering</div>
+              <div class="sc-img-badge studio-badge">Study</div>
+            </div>
             <div class="sc-num">02</div>
             <div class="sc-name">Reverse Engineering</div>
             <div class="sc-desc">Understanding how it was made, why it was made that way, and what principles governed its form.</div>
-            <div class="sc-tag">Understand</div>
+            <div class="sc-card-footer">
+              <div class="sc-tag">Understand</div>
+              <a href="https://www.vintagetech.com.au/index.php/reverse-engineering-bespoke-custom-mechanical-engineering-automotiveparts-sydney-australia/" target="_blank" class="sc-article-link">View Process <span>→</span></a>
+            </div>
           </div>
+
           <div class="service-card studio-service">
+            <div class="sc-img sc-img-placeholder sc-img-cad">
+              <div class="sc-img-label">AutoCAD Design</div>
+              <div class="sc-img-badge studio-badge">Design</div>
+            </div>
             <div class="sc-num">03</div>
             <div class="sc-name">AutoCAD Design</div>
             <div class="sc-desc">Translating heritage understanding into a precise modern specification ready for manufacture.</div>
-            <div class="sc-tag">Specify</div>
+            <div class="sc-card-footer">
+              <div class="sc-tag">Specify</div>
+            </div>
           </div>
 
           <!-- Thread divider -->
@@ -1883,22 +1960,59 @@ a { text-decoration: none; color: inherit; }
 
           <!-- Factory services -->
           <div class="service-card factory-service">
+            <div class="sc-img sc-img-placeholder sc-img-print">
+              <div class="sc-img-label">3D Printing</div>
+              <div class="sc-img-badge factory-badge">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <polygon points="1,1 7,4 1,7" fill="rgba(106,156,196,0.8)"/>
+                </svg>
+                Video
+              </div>
+            </div>
             <div class="sc-num">04</div>
             <div class="sc-name">3D Printing &amp; Prototyping</div>
             <div class="sc-desc">Testing the idea before committing to material. Rapid iteration on form and function.</div>
-            <div class="sc-tag factory-tag">Test</div>
+            <div class="sc-card-footer">
+              <div class="sc-tag factory-tag">Test</div>
+              <a href="https://www.vintagetech.com.au/3d-printing-and-rapid-prototyping/" target="_blank" class="sc-article-link factory-article">View Process <span>→</span></a>
+            </div>
           </div>
+
           <div class="service-card factory-service">
+            <div class="sc-img sc-img-placeholder sc-img-cnc">
+              <div class="sc-img-label">CNC 5-Axis</div>
+              <div class="sc-img-badge factory-badge">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <polygon points="1,1 7,4 1,7" fill="rgba(106,156,196,0.8)"/>
+                </svg>
+                Video
+              </div>
+            </div>
             <div class="sc-num">05</div>
             <div class="sc-name">CNC Machining 5-Axis</div>
             <div class="sc-desc">Precision manufacture at modern tolerances. Complex geometries executed with exacting accuracy.</div>
-            <div class="sc-tag factory-tag">Manufacture</div>
+            <div class="sc-card-footer">
+              <div class="sc-tag factory-tag">Manufacture</div>
+            </div>
           </div>
+
           <div class="service-card factory-service">
+            <div class="sc-img sc-img-placeholder sc-img-cast">
+              <div class="sc-img-label">Foundry Casting</div>
+              <div class="sc-img-badge factory-badge">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <polygon points="1,1 7,4 1,7" fill="rgba(106,156,196,0.8)"/>
+                </svg>
+                Video
+              </div>
+            </div>
             <div class="sc-num">06</div>
             <div class="sc-name">Foundry Casting</div>
             <div class="sc-desc">Recreating original material form and surface. The past remade in its own language.</div>
-            <div class="sc-tag factory-tag">Complete</div>
+            <div class="sc-card-footer">
+              <div class="sc-tag factory-tag">Complete</div>
+              <a href="https://www.vintagetech.com.au/recasting-the-past-for-the-future-innovative-foundry-casting/" target="_blank" class="sc-article-link factory-article">View Process <span>→</span></a>
+            </div>
           </div>
 
         </div>

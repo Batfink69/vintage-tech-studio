@@ -364,6 +364,33 @@ a { text-decoration: none; color: inherit; }
 .editions-line-r { flex: 1; }
 .editions-diamond { border-color: rgba(184,154,106,.55); }
 .editions-diamond { background: rgba(11,10,8,1); }
+
+/* Editions navigation links */
+.editions-title-link {
+  color: inherit; text-decoration: none; transition: opacity .25s;
+}
+.editions-title-link:hover { opacity: .75; }
+.editions-head-links {
+  display: flex; gap: 24px; align-items: center; margin-top: 12px;
+}
+.editions-explore-link {
+  font-family: var(--ff-cond); font-size: 12px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold-dim);
+  padding: 9px 22px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .25s;
+}
+.editions-explore-link:hover { background: var(--gold-dim); }
+.series-cta-primary {
+  border: 1px solid var(--gold-dim);
+  color: var(--gold); padding: 9px 22px;
+}
+.series-cta-primary:hover { background: var(--gold-dim); }
+/* Object card as link */
+.object-card-link { text-decoration: none; color: inherit; cursor: pointer; }
+.object-card-link:hover { border-color: var(--gold-dim) !important; }
+.object-card-link:hover .oc-title em { color: rgba(184,154,106,.9); }
 .vt-sh-label-centre {
   font-family: var(--ff-cond);
   font-size: 7px; letter-spacing: .3em; text-transform: uppercase;

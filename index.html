@@ -364,6 +364,33 @@ a { text-decoration: none; color: inherit; }
 .editions-line-r { flex: 1; }
 .editions-diamond { border-color: rgba(184,154,106,.55); }
 .editions-diamond { background: rgba(11,10,8,1); }
+
+/* Editions navigation links */
+.editions-title-link {
+  color: inherit; text-decoration: none; transition: opacity .25s;
+}
+.editions-title-link:hover { opacity: .75; }
+.editions-head-links {
+  display: flex; gap: 24px; align-items: center; margin-top: 12px;
+}
+.editions-explore-link {
+  font-family: var(--ff-cond); font-size: 12px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold-dim);
+  padding: 9px 22px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .25s;
+}
+.editions-explore-link:hover { background: var(--gold-dim); }
+.series-cta-primary {
+  border: 1px solid var(--gold-dim);
+  color: var(--gold); padding: 9px 22px;
+}
+.series-cta-primary:hover { background: var(--gold-dim); }
+/* Object card as link */
+.object-card-link { text-decoration: none; color: inherit; cursor: pointer; }
+.object-card-link:hover { border-color: var(--gold-dim) !important; }
+.object-card-link:hover .oc-title em { color: rgba(184,154,106,.9); }
 .vt-sh-label-centre {
   font-family: var(--ff-cond);
   font-size: 7px; letter-spacing: .3em; text-transform: uppercase;
@@ -1642,7 +1669,7 @@ a { text-decoration: none; color: inherit; }
               </div>
               <div class="sw-card-title"><em>Homage to Form</em></div>
               <div class="sw-card-desc">An exploration of art historical form through AI generation, 3D fabrication, and hand finishing. Where the history of making meets the tools of now.</div>
-              <a href="#editions" class="sw-card-link studio-link">View Series <span>→</span></a>
+              <a href="homage-to-form.html" class="sw-card-link studio-link">View Series <span>→</span></a>
             </div>
           </div>
 
@@ -1711,9 +1738,12 @@ a { text-decoration: none; color: inherit; }
           <canvas class="vt-sh-mark" id="markEditions2" width="40" height="40"></canvas>
           <div class="vt-sh-line editions-line-r"></div>
         </div>
-        <h2 class="vt-sh-title editions-sh-title"><strong>Homage</strong> to Form<br>&amp; Future Series</h2>
+        <h2 class="vt-sh-title editions-sh-title"><a href="homage-to-form.html" class="editions-title-link"><strong>Homage</strong> to Form</a><br>&amp; Future Series</h2>
         <p class="vt-sh-sub editions-sh-sub">An ongoing programme of art and design objects. Each series a numbered edition — thematically distinct, materially considered, fabricated at Vintage Tech.</p>
-        <a href="#commission" class="editions-trade-link">Trade Enquiries <span>→</span></a>
+        <div class="editions-head-links">
+          <a href="homage-to-form.html" class="editions-explore-link">Explore Series I <span>→</span></a>
+          <a href="#commission" class="editions-trade-link">Trade Enquiries <span>→</span></a>
+        </div>
       </div>
 
       <!-- Series I -->
@@ -1752,6 +1782,7 @@ a { text-decoration: none; color: inherit; }
                 <div class="sd-value">Wholesale — Trade Registration</div>
               </div>
             </div>
+            <a href="homage-to-form.html" class="series-cta series-cta-primary">View Full Series <span>→</span></a>
             <a href="#commission" class="series-cta">Register Trade Interest <span>→</span></a>
           </div>
         </div>
@@ -1766,7 +1797,7 @@ a { text-decoration: none; color: inherit; }
 
       <div class="objects-grid">
 
-        <div class="object-card">
+        <a href="homage-to-form.html" class="object-card object-card-link">
           <div class="oc-img oc-img-placeholder">
             <div class="oc-num">I</div>
           </div>
@@ -1778,9 +1809,9 @@ a { text-decoration: none; color: inherit; }
               <span class="oc-label">Hand-finished</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="object-card">
+        <a href="homage-to-form.html" class="object-card object-card-link">
           <div class="oc-img oc-img-placeholder">
             <div class="oc-num">II</div>
           </div>
@@ -1792,9 +1823,9 @@ a { text-decoration: none; color: inherit; }
               <span class="oc-label">Hand-finished</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="object-card">
+        <a href="homage-to-form.html" class="object-card object-card-link">
           <div class="oc-img oc-img-placeholder">
             <div class="oc-num">III</div>
           </div>
@@ -1806,9 +1837,9 @@ a { text-decoration: none; color: inherit; }
               <span class="oc-label">Hand-finished</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="object-card">
+        <a href="homage-to-form.html" class="object-card object-card-link">
           <div class="oc-img oc-img-placeholder">
             <div class="oc-num">IV</div>
           </div>
@@ -1820,9 +1851,9 @@ a { text-decoration: none; color: inherit; }
               <span class="oc-label">Hand-finished</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="object-card">
+        <a href="homage-to-form.html" class="object-card object-card-link">
           <div class="oc-img oc-img-placeholder">
             <div class="oc-num">V</div>
           </div>
@@ -1832,6 +1863,11 @@ a { text-decoration: none; color: inherit; }
             <div class="oc-meta">
               <span class="oc-label">3D Fabricated</span>
               <span class="oc-label">Hand-finished</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
             </div>
           </div>
         </div>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vintage Tech — Studio &amp; Factory</title>
-  <meta name="description" content="Reverse engineering the past for the future. Vintage Tech is a Sydney-based studio and factory specialising in heritage design, precision engineering, and the Homage to Form art and design programme.">
+  <title>Homage to Form — Vintage Tech Editions</title>
+  <meta name="description" content="Homage to Form is an ongoing series of art objects from Vintage Tech — exploring art historical form through AI generation, 3D fabrication, and hand finishing.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Barlow+Condensed:wght@200;300;400;500;600;700&family=Barlow:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -1400,22 +1400,444 @@ a { text-decoration: none; color: inherit; }
   /* ── Nav ── */
   .brand-name         { font-size: 14px; letter-spacing: .3em; }
 }
+
+/* ═══════════════════════════════════════
+   Vintage Tech — Project Page CSS
+   Homage to Form & future project pages
+═══════════════════════════════════════ */
+
+/* ── Project nav override ── */
+.project-nav-back {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--ff-cond); font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--white-dim); transition: color .25s;
+}
+.project-nav-back:hover { color: var(--white); }
+.project-nav-back svg { transition: transform .25s; }
+.project-nav-back:hover svg { transform: translateX(-3px); }
+
+/* ── Project Hero ── */
+.project-hero {
+  position: relative;
+  height: 100vh; min-height: 600px;
+  overflow: hidden;
+  background: #050507;
+}
+
+.ph-video-wrap {
+  position: absolute; inset: 0;
+  z-index: 1;
+}
+.ph-video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .75;
+}
+.ph-vimeo {
+  width: 100%; height: 100%;
+  border: none;
+  transform: scale(1.1);
+}
+.ph-video-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #0a0f0a 0%, #050507 100%);
+}
+.vp-mark { display: block; }
+.vp-label {
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: 18px; color: rgba(184,154,106,.4);
+}
+.vp-sub {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(237,232,222,.15);
+}
+
+.ph-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,7,.2) 0%,
+    rgba(5,5,7,.1) 40%,
+    rgba(5,5,7,.5) 75%,
+    rgba(5,5,7,.85) 100%
+  );
+}
+
+.ph-content {
+  position: absolute; z-index: 3;
+  bottom: 52px; left: 52px; right: 52px;
+  display: flex; justify-content: space-between;
+  align-items: flex-end;
+}
+.ph-text { max-width: 560px; }
+.ph-eyebrow {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,154,106,.75); margin-bottom: 12px;
+}
+.ph-title {
+  font-family: var(--ff-serif); font-size: 68px;
+  font-weight: 300; font-style: italic;
+  color: rgba(237,232,222,.95); line-height: .97;
+  margin-bottom: 18px;
+}
+.ph-premise {
+  font-family: var(--ff-body); font-size: 15px;
+  font-weight: 300; color: rgba(237,232,222,.55);
+  line-height: 1.75; max-width: 420px;
+}
+.ph-meta { text-align: right; }
+.ph-tags { display: flex; gap: 8px; justify-content: flex-end; margin-bottom: 16px; }
+.ph-tag {
+  font-family: var(--ff-cond); font-size: 11px;
+  letter-spacing: .16em; text-transform: uppercase;
+  padding: 5px 12px; font-weight: 400;
+}
+.ph-tag-editions { border: 1px solid rgba(184,154,106,.3); color: rgba(184,154,106,.7); }
+.ph-tag-studio   { border: 1px solid rgba(74,158,106,.3);  color: rgba(74,158,106,.7); }
+.ph-scroll {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(237,232,222,.25); display: flex;
+  align-items: center; gap: 8px;
+  animation: ph-scroll-pulse 3s ease-in-out infinite;
+}
+@keyframes ph-scroll-pulse {
+  0%,100% { opacity: .25; }
+  50%      { opacity: .55; }
+}
+
+.ph-video-badge {
+  position: absolute; z-index: 4;
+  top: 20px; right: 20px;
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(237,232,222,.3); border: 1px solid rgba(237,232,222,.1);
+  padding: 5px 12px; display: flex; align-items: center; gap: 6px;
+}
+.ph-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(184,154,106,.6);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+@keyframes badge-pulse {
+  0%,100% { opacity: .6; } 50% { opacity: 1; }
+}
+
+/* ── Project metadata strip ── */
+.project-meta {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid rgba(237,232,222,.07);
+  background: rgba(9,9,10,.98);
+}
+.pm-item {
+  padding: 18px 24px; border-right: 1px solid rgba(237,232,222,.07);
+}
+.pm-item:last-child { border-right: none; }
+.pm-label {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(184,154,106,.5); margin-bottom: 5px;
+}
+.pm-value {
+  font-family: var(--ff-cond); font-size: 14px;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(237,232,222,.75); font-weight: 400;
+}
+
+/* ── Project sections shared ── */
+.project-section { border-bottom: 1px solid rgba(237,232,222,.07); }
+.studio-section-bg  { background: #0c1a12; }
+.factory-section-bg { background: #070910; }
+.objects-section-bg { background: rgba(11,10,8,.98); }
+.ps-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 72px 52px;
+}
+
+/* ── Studio half ── */
+.studio-half-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: start;
+}
+.sh-text { display: flex; flex-direction: column; gap: 24px; }
+.sh-eyebrow {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(74,158,106,.65);
+}
+.sh-title {
+  font-family: var(--ff-serif); font-size: 42px;
+  font-weight: 300; font-style: italic;
+  color: rgba(237,232,222,.9); line-height: 1.08;
+}
+.manifesto-block { display: flex; flex-direction: column; gap: 18px; }
+.manifesto-text {
+  font-family: var(--ff-serif); font-size: 19px;
+  font-weight: 300; color: rgba(237,232,222,.65);
+  line-height: 1.75;
+}
+.manifesto-text strong {
+  color: rgba(237,232,222,.92); font-weight: 400; font-style: normal;
+}
+.manifesto-text em { font-style: italic; color: rgba(74,158,106,.75); }
+
+.sh-img {
+  position: relative;
+}
+.sh-img-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: rgba(74,158,106,.06);
+  border: 1px solid rgba(74,158,106,.1);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+}
+.sh-img-label {
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: 15px; color: rgba(74,158,106,.35);
+}
+.sh-img-sub {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(237,232,222,.15);
+}
+.sh-img-note {
+  margin-top: 16px;
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(74,158,106,.4); text-align: center;
+}
+
+/* ── Mantra divider ── */
+.mantra-divider {
+  padding: 36px 52px;
+  display: flex; align-items: center; gap: 24px;
+  background: rgba(9,9,10,.98);
+  border-bottom: 1px solid rgba(237,232,222,.07);
+}
+.md-line { flex: 1; height: 1px; background: rgba(184,154,106,.15); }
+.md-diamond {
+  width: 8px; height: 8px; flex-shrink: 0;
+  border: 1px solid rgba(184,154,106,.55);
+  background: rgba(9,9,10,.98); transform: rotate(45deg);
+}
+.md-text {
+  font-family: var(--ff-serif); font-size: 15px;
+  font-style: italic; font-weight: 300;
+  color: rgba(184,154,106,.65); letter-spacing: .06em;
+  white-space: nowrap;
+}
+
+/* ── Factory half ── */
+.factory-eyebrow-text {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(106,156,196,.65); margin-bottom: 14px;
+}
+.factory-half-title {
+  font-family: var(--ff-cond); font-size: 42px;
+  font-weight: 300; text-transform: uppercase;
+  letter-spacing: .05em; color: rgba(237,232,222,.9);
+  line-height: .97; margin-bottom: 32px;
+}
+.factory-half-title span { color: rgba(106,156,196,.65); }
+
+.process-sequence {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: rgba(106,156,196,.08);
+  margin-bottom: 40px;
+}
+.ps-step {
+  background: #070910; padding: 0;
+  display: flex; flex-direction: column;
+  border: 1px solid rgba(106,156,196,.08);
+  transition: border-color .25s;
+}
+.ps-step:hover { border-color: rgba(106,156,196,.2); }
+.ps-step-img {
+  width: 100%; aspect-ratio: 4/3;
+  background: rgba(106,156,196,.05);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  border-bottom: 1px solid rgba(106,156,196,.08);
+  position: relative; overflow: hidden;
+}
+.psi-label {
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: 13px; color: rgba(106,156,196,.3);
+}
+.psi-badge {
+  position: absolute; top: 8px; right: 8px;
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(106,156,196,.5);
+  border: 1px solid rgba(106,156,196,.15); padding: 2px 7px;
+}
+.ps-step-body { padding: 18px 20px; flex: 1; }
+.pss-num {
+  font-family: var(--ff-mono); font-size: 11px;
+  color: rgba(106,156,196,.35); letter-spacing: .12em; margin-bottom: 7px;
+}
+.pss-name {
+  font-family: var(--ff-cond); font-size: 14px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(237,232,222,.85); font-weight: 500; margin-bottom: 6px;
+}
+.pss-desc {
+  font-family: var(--ff-body); font-size: 13px;
+  font-weight: 300; color: rgba(237,232,222,.38); line-height: 1.65;
+}
+
+/* ── Finished objects section ── */
+.objects-eyebrow {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,154,106,.6); margin-bottom: 14px;
+}
+.objects-title {
+  font-family: var(--ff-serif); font-size: 42px;
+  font-weight: 300; font-style: italic;
+  color: rgba(237,232,222,.9); margin-bottom: 36px;
+}
+.objects-photo-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 1px; background: rgba(184,154,106,.08);
+  margin-bottom: 40px;
+}
+.opg-item {
+  background: rgba(11,10,8,.98);
+  border: 1px solid rgba(184,154,106,.07);
+}
+.opg-img {
+  width: 100%; aspect-ratio: 3/4;
+  background: rgba(184,154,106,.04);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+}
+.opg-img-label {
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: 13px; color: rgba(184,154,106,.25);
+}
+.opg-img-sub {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(237,232,222,.1);
+}
+.opg-item.featured .opg-img { aspect-ratio: 2/3; }
+.objects-note {
+  font-family: var(--ff-body); font-size: 14px;
+  font-weight: 300; font-style: italic;
+  color: rgba(237,232,222,.35); text-align: center;
+  padding: 0 20%; line-height: 1.75;
+}
+
+/* ── Project footer ── */
+.project-footer-section { background: #0c1a12; }
+.pf-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px; background: rgba(237,232,222,.06);
+  margin-bottom: 52px;
+}
+.pf-related, .pf-journal, .pf-commission {
+  padding: 32px; background: #0c1a12;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.pfr-label, .pfj-label, .pfc-label {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.pfr-label { color: rgba(74,158,106,.5); }
+.pfj-label { color: rgba(184,154,106,.5); }
+.pfc-label { color: rgba(106,156,196,.5); }
+.pfr-title, .pfj-title {
+  font-family: var(--ff-serif); font-size: 20px;
+  font-weight: 300; color: rgba(237,232,222,.85);
+}
+.pfr-title em, .pfj-title em { font-style: italic; }
+.pfr-desc, .pfj-desc {
+  font-family: var(--ff-body); font-size: 13px;
+  font-weight: 300; color: rgba(237,232,222,.38); line-height: 1.65; flex: 1;
+}
+.pfr-cta, .pfj-cta {
+  font-family: var(--ff-cond); font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase;
+  font-weight: 500; display: inline-flex;
+  align-items: center; gap: 7px; transition: opacity .25s;
+  margin-top: auto;
+}
+.pfr-cta { color: rgba(74,158,106,.65); }
+.pfj-cta { color: rgba(184,154,106,.65); }
+.pfr-cta:hover, .pfj-cta:hover { opacity: .7; }
+
+.pf-commission-inner {
+  display: flex; flex-direction: column; gap: 12px; height: 100%;
+}
+.pfc-title {
+  font-family: var(--ff-serif); font-size: 28px;
+  font-weight: 300; color: rgba(237,232,222,.9); line-height: 1.1;
+}
+.pfc-title em { font-style: italic; color: rgba(106,156,196,.65); }
+.pfc-desc {
+  font-family: var(--ff-body); font-size: 13px;
+  font-weight: 300; color: rgba(237,232,222,.38); line-height: 1.65; flex: 1;
+}
+.pfc-cta {
+  font-family: var(--ff-cond); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(106,156,196,.75); border: 1px solid rgba(106,156,196,.25);
+  padding: 12px 20px; display: inline-flex;
+  align-items: center; gap: 8px; font-weight: 500;
+  transition: all .25s; align-self: flex-start; margin-top: auto;
+}
+.pfc-cta:hover { background: rgba(106,156,196,.08); }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .ph-title { font-size: 48px; }
+  .ph-content { bottom: 32px; left: 32px; right: 32px; flex-direction: column; gap: 20px; }
+  .ph-meta { text-align: left; }
+  .ph-tags { justify-content: flex-start; }
+  .project-meta { grid-template-columns: repeat(2,1fr); }
+  .ps-inner { padding: 52px 32px; }
+  .studio-half-grid { grid-template-columns: 1fr; gap: 40px; }
+  .process-sequence { grid-template-columns: 1fr; }
+  .objects-photo-grid { grid-template-columns: 1fr 1fr; }
+  .pf-grid { grid-template-columns: 1fr; }
+  .objects-note { padding: 0; }
+}
+
+@media (max-width: 600px) {
+  .ph-title { font-size: 36px; }
+  .project-meta { grid-template-columns: 1fr 1fr; }
+  .ps-inner { padding: 40px 20px; }
+  .mantra-divider { padding: 24px 20px; }
+  .md-text { font-size: 13px; white-space: normal; text-align: center; }
+  .objects-photo-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
-<body>
+<body class="project-page">
 
-  <!-- ═══════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════ -->
+  <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <nav class="nav-left">
-        <a href="#studio" class="nav-link">The Studio</a>
-        <a href="#editions" class="nav-link">The Editions</a>
-        <a href="#factory" class="nav-link">The Factory</a>
+        <a href="index.html" class="nav-back">
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+            <path d="M6 1L1 5L6 9" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="1" y1="5" x2="13" y2="5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          Back
+        </a>
+        <a href="index.html#editions" class="nav-link">The Editions</a>
       </nav>
       <div class="nav-brand">
-        <a href="#hero" class="nav-logo-wrap">
+        <a href="index.html" class="nav-logo-wrap">
           <div class="nav-logo-text">
             <div class="brand-name">Vintage Tech</div>
             <div class="brand-tag">Studio &middot; Factory</div>
@@ -1423,783 +1845,303 @@ a { text-decoration: none; color: inherit; }
         </a>
       </div>
       <nav class="nav-right">
-        <a href="#journal" class="nav-link">Journal</a>
-        <a href="#commission" class="nav-cta">Commission</a>
+        <a href="index.html#journal" class="nav-link">Journal</a>
+        <a href="index.html#commission" class="nav-cta">Commission</a>
       </nav>
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════
-       SPLIT-SCREEN HERO
-  ═══════════════════════════════════════ -->
-  <section class="hero" id="hero">
+  <!-- PROJECT HERO — VIDEO -->
+  <section class="project-hero" id="projectHero">
+    <div class="ph-video-wrap">
+      <!--
+        VIDEO INSTRUCTIONS:
+        Option A — Local MP4 (under 100MB):
+          Place file at: assets/videos/homage-to-form-rotation.mp4
+          The <video> tag below will load it automatically.
 
-    <!-- Factory world — right / base layer -->
-    <div class="hero-factory" id="heroFactory">
-      <div class="factory-grid"></div>
-      <div class="factory-img" style="background-image:url('assets/placeholder-factory.png');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-    </div>
+        Option B — Vimeo (recommended for HD):
+          1. Upload to Vimeo
+          2. Get the video ID from the URL
+          3. Comment out the <video> block below
+          4. Uncomment the <iframe> block and replace YOUR_VIMEO_ID
+      -->
 
-    <!-- Studio world — left / clip layer -->
-    <div class="hero-studio" id="heroStudio">
-      <div class="studio-lines"></div>
-      <div class="studio-img" style="background-image:url('assets/placeholder-studio.png');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-    </div>
+      <!-- Option A: Local MP4 -->
+      <video
+        class="ph-video"
+        id="heroVideo"
+        autoplay muted loop playsinline preload="auto"
+        poster="assets/images/homage-hero-poster.jpg">
+        <source src="assets/videos/homage-to-form-rotation.mp4" type="video/mp4">
+      </video>
 
-    <!-- Dividing line -->
-    <div class="hero-divider" id="heroDivider">
-      <div class="divider-tick top"></div>
-      <div class="divider-tick bottom"></div>
-    </div>
+      <!-- Option B: Vimeo embed (uncomment when ready)
+      <iframe
+        class="ph-video ph-vimeo"
+        src="https://player.vimeo.com/video/YOUR_VIMEO_ID?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+      -->
 
-    <!-- Animated rotating diamond ON the divider line -->
-    <canvas class="hero-diamond-canvas" id="heroDiamond" width="130" height="104"></canvas>
-
-    <!-- Studio content — revealed on left drag -->
-    <div class="hero-content studio-content" id="studioContent">
-      <div class="hc-eyebrow">I — The Studio</div>
-      <h1 class="hc-headline studio-headline">Where<br>Form Finds<br><em>Its Story</em></h1>
-      <p class="hc-body">Form, vision, heritage and narrative — explored before a single part is made.</p>
-      <a href="#studio" class="hc-action studio-action">
-        <span class="action-arrow">→</span> Explore Studio
-      </a>
-    </div>
-
-    <!-- Factory content — revealed on right drag -->
-    <div class="hero-content factory-content" id="factoryContent">
-      <div class="hc-eyebrow factory-eyebrow">II — The Factory</div>
-      <h2 class="hc-headline factory-headline">Idea<br>Meets<br><span>Iron.</span></h2>
-      <p class="hc-body">Those ideas are engineered and manufactured to last.</p>
-      <a href="#factory" class="hc-action factory-action">
-        View Capabilities <span class="action-arrow">→</span>
-      </a>
-    </div>
-
-    <!-- Mantra — only placement on the site -->
-    <div class="hero-mantra">
-      <div class="mantra-past">Reverse engineering the past</div>
-      <div class="mantra-orn">
-        <span class="mantra-line"></span>
-        <span class="mantra-diamond"></span>
-        <span class="mantra-line"></span>
+      <div class="ph-video-placeholder" id="videoPlaceholder">
+        <canvas class="vp-mark" id="heroMark" width="80" height="80"></canvas>
+        <div class="vp-label">Homage to Form</div>
+        <div class="vp-sub">Rotation video — loading</div>
       </div>
-      <div class="mantra-future">for the future</div>
     </div>
 
-    <div class="hero-hint" id="heroHint">&larr;&nbsp; move to explore &nbsp;&rarr;</div>
+    <div class="ph-overlay"></div>
 
-    <!-- Scroll indicator — mobile tap target -->
-    <a href="#bridge" class="scroll-indicator" id="scrollIndicator" aria-label="Scroll down">
-      <div class="si-diamond"></div>
-      <div class="si-chevron">
-        <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
-          <path d="M1 1L7 7L13 1" stroke="rgba(184,154,106,0.7)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <div class="ph-content">
+      <div class="ph-breadcrumb">
+        <span class="ph-bc-item">The Editions</span>
+        <span class="ph-bc-sep">&middot;</span>
+        <span class="ph-bc-item">Series I</span>
       </div>
+      <h1 class="ph-title"><em>Homage to Form</em></h1>
+      <p class="ph-premise">Where art history meets the tools of now</p>
+      <div class="ph-tags">
+        <span class="ph-tag studio-ph-tag">Studio</span>
+        <span class="ph-tag editions-ph-tag">Editions</span>
+        <span class="ph-tag">3D Fabricated</span>
+        <span class="ph-tag">Hand-finished</span>
+      </div>
+    </div>
+
+    <div class="ph-video-badge">
+      <div class="pvb-dot"></div>
+      <span>1080p &middot; Loop</span>
+    </div>
+
+    <a href="#projectMeta" class="ph-scroll-cue">
+      <div class="psc-diamond"></div>
+      <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+        <path d="M1 1L7 7L13 1" stroke="rgba(184,154,106,0.6)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </a>
-
   </section>
 
-  <!-- ═══════════════════════════════════════
-       BRIDGE BAND
-  ═══════════════════════════════════════ -->
-  <div class="bridge" id="bridge">
-    <div class="bridge-studio">
-      <div class="bridge-world-label studio-label">The Studio</div>
-      <div class="bridge-desc">Where form, vision, heritage and narrative are explored</div>
+  <!-- PROJECT METADATA STRIP -->
+  <div class="project-meta" id="projectMeta">
+    <div class="pm-item">
+      <div class="pm-label">Programme</div>
+      <div class="pm-value">Edition I &mdash; Ongoing</div>
     </div>
-    <div class="bridge-centre">
-      <div class="bridge-mark">Vintage Tech</div>
-      <div class="bridge-orn">
-        <span class="b-line"></span>
-        <span class="b-diamond"></span>
-        <span class="b-line"></span>
-      </div>
-      <div class="bridge-location">Bondi Junction, Sydney</div>
+    <div class="pm-item">
+      <div class="pm-label">Medium</div>
+      <div class="pm-value">3D Fabricated &middot; Weighted &middot; Hand-finished</div>
     </div>
-    <div class="bridge-factory">
-      <div class="bridge-world-label factory-label">The Factory</div>
-      <div class="bridge-desc">Where those ideas are engineered and manufactured</div>
+    <div class="pm-item">
+      <div class="pm-label">Objects</div>
+      <div class="pm-value">Series I &mdash; Five pieces</div>
+    </div>
+    <div class="pm-item">
+      <div class="pm-label">Available</div>
+      <div class="pm-value">Wholesale &middot; Trade Registration</div>
+    </div>
+    <div class="pm-item">
+      <div class="pm-label">Origin</div>
+      <div class="pm-value">Bondi Junction, Sydney</div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════
-       THE STUDIO
-  ═══════════════════════════════════════ -->
-  <section class="world-section studio-section" id="studio">
-    <div class="section-inner">
+  <!-- STUDIO HALF — THE THINKING -->
+  <section class="project-section studio-section-bg" id="studioHalf">
+    <div class="project-inner">
 
-      <div class="vt-section-head studio-section-head">
-        <div class="vt-sh-crown">
-          <div class="vt-sh-line"></div>
-          <canvas class="vt-sh-mark" id="markStudio" width="40" height="40"></canvas>
-          <div class="vt-sh-line"></div>
-        </div>
-        <div class="vt-sh-eyebrow studio-sh-eyebrow">
-          <span class="vt-sh-eyebrow-rule"></span>
-          The Studio &nbsp;&middot;&nbsp; Creative Direction
-          <span class="vt-sh-eyebrow-rule"></span>
-        </div>
-        <h2 class="vt-sh-title studio-sh-title">Where Form,<br>Vision &amp; <em>Heritage</em><br>Are Explored</h2>
-        <p class="vt-sh-sub">We explore objects and ideas at the intersection of material heritage and narrative precision — each project an act of slow thinking before it becomes a thing made.</p>
-        <blockquote class="studio-quote">
-          "We do not start with what it should look like. We start with what it should <strong>mean</strong> — and let form follow from there."
-        </blockquote>
+      <div class="ps-world-label">
+        <canvas class="ps-mark" id="markStudioP" width="32" height="32"></canvas>
+        <div class="ps-world-text studio-world-text">The Studio &mdash; The Thinking</div>
       </div>
 
-      <div class="disciplines-grid">
-        <div class="discipline-card">
-          <div class="dc-num">01</div>
-          <div class="dc-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <rect x="3" y="3" width="26" height="26" stroke="rgba(74,158,106,0.35)" stroke-width="0.75"/>
-              <rect x="9" y="9" width="14" height="14" stroke="rgba(74,158,106,0.6)" stroke-width="0.75"/>
-              <line x1="16" y1="3" x2="16" y2="9" stroke="rgba(74,158,106,0.3)" stroke-width="0.75"/>
-              <line x1="16" y1="23" x2="16" y2="29" stroke="rgba(74,158,106,0.3)" stroke-width="0.75"/>
-            </svg>
-          </div>
-          <div class="dc-name">Form &amp; Object</div>
-          <div class="dc-desc">Industrial and product design rooted in material truth. Objects that justify their existence through considered form.</div>
+      <div class="manifesto-block">
+        <div class="mb-rule studio-rule"></div>
+        <div class="manifesto-text">
+          <p class="mt-lead"><em>Form does not fade. It persists throughout time.</em></p>
+          <p>Long after a maker is gone, form remains &mdash; carrying forward decisions shaped by material, constraint, and intent. This is how knowledge moves across generations: not through instruction, but through what endures.</p>
+          <p>At Vintage Tech, reverse engineering the past begins with form. The <em>Homage to Form</em> series exists at the intersection of art history, artificial intelligence, and the precision of contemporary making. Each object in the series is a response to a moment in the history of form &mdash; a conversation across time between what was made then and what can be made now.</p>
+          <p>The way we make has changed. Why we make has not.</p>
         </div>
-        <div class="discipline-card">
-          <div class="dc-num">02</div>
-          <div class="dc-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <polygon points="16,2 30,28 2,28" stroke="rgba(74,158,106,0.35)" stroke-width="0.75" fill="none"/>
-              <line x1="16" y1="2" x2="16" y2="28" stroke="rgba(74,158,106,0.3)" stroke-width="0.5"/>
-            </svg>
-          </div>
-          <div class="dc-name">Vision &amp; Direction</div>
-          <div class="dc-desc">Creative strategy and design direction for brands operating at the edge of craft and modernity.</div>
-        </div>
-        <div class="discipline-card">
-          <div class="dc-num">03</div>
-          <div class="dc-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="11" stroke="rgba(74,158,106,0.35)" stroke-width="0.75"/>
-              <circle cx="16" cy="16" r="5" fill="rgba(74,158,106,0.08)" stroke="rgba(74,158,106,0.5)" stroke-width="0.75"/>
-            </svg>
-          </div>
-          <div class="dc-name">Heritage &amp; Research</div>
-          <div class="dc-desc">Archival investigation, material provenance, and form analysis. Understanding what was made before reaching for the new.</div>
-        </div>
-        <div class="discipline-card">
-          <div class="dc-num">04</div>
-          <div class="dc-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <line x1="3" y1="16" x2="29" y2="16" stroke="rgba(74,158,106,0.4)" stroke-width="0.75"/>
-              <line x1="16" y1="3" x2="16" y2="29" stroke="rgba(74,158,106,0.4)" stroke-width="0.75"/>
-              <rect x="10" y="10" width="12" height="12" fill="rgba(74,158,106,0.06)" stroke="rgba(74,158,106,0.3)" stroke-width="0.75"/>
-            </svg>
-          </div>
-          <div class="dc-name">Narrative &amp; Identity</div>
-          <div class="dc-desc">Brand systems and editorial language built to endure across decades. Identity with depth and material intelligence.</div>
+        <div class="mb-attribution">
+          <div class="mba-line"></div>
+          <div class="mba-text">Vintage Tech Studio &middot; Bondi Junction, Sydney</div>
         </div>
       </div>
 
-      <div class="process-strip">
-        <div class="process-step">
-          <div class="ps-num">01 — Immerse</div>
-          <div class="ps-name">Research</div>
-          <div class="ps-desc">Material history, cultural context, and the unspoken reasons a thing has always been made a certain way.</div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">02 — Conceive</div>
-          <div class="ps-name">Sketch</div>
-          <div class="ps-desc">Hand to paper, analogue first. The fastest ideas are rarely the right ones.</div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">03 — Resolve</div>
-          <div class="ps-name">Define</div>
-          <div class="ps-desc">From intention to specification. Every detail earned, every decision defended.</div>
-        </div>
-        <div class="process-step">
-          <div class="ps-num">04 — Handoff</div>
-          <div class="ps-name">Transmit</div>
-          <div class="ps-desc">The Studio passes the baton. The Factory takes the vision and makes it real.</div>
-        </div>
-      </div>
-
-      <!-- Selected Work -->
-      <div class="studio-work">
-        <div class="studio-work-head">
-          <div class="sw-label">Selected Work</div>
-          <div class="sw-rule"></div>
-          <a href="#commission" class="sw-all">All Projects <span>→</span></a>
-        </div>
-
-        <div class="studio-work-grid">
-
-          <div class="sw-card">
-            <div class="sw-card-img sw-img-placeholder">
-              <div class="sw-img-label">Homage to Form</div>
-              <div class="sw-img-sub">Photography coming</div>
-            </div>
-            <div class="sw-card-body">
-              <div class="sw-card-meta">
-                <span class="sw-card-num">01</span>
-                <span class="sw-card-cat studio-cat">Studio &middot; Editions</span>
-              </div>
-              <div class="sw-card-title"><em>Homage to Form</em></div>
-              <div class="sw-card-desc">An exploration of art historical form through AI generation, 3D fabrication, and hand finishing. Where the history of making meets the tools of now.</div>
-              <a href="#editions" class="sw-card-link studio-link">View Series <span>→</span></a>
-            </div>
+      <div class="concept-image-zone">
+        <div class="ciz-label">Concept &amp; Reference</div>
+        <div class="ciz-grid">
+          <div class="ciz-img ciz-img-placeholder">
+            <div class="ciz-img-label">AI concept render</div>
+            <div class="ciz-img-sub">Image coming</div>
           </div>
-
-          <div class="sw-card">
-            <div class="sw-card-img sw-img-placeholder sw-img-factory">
-              <div class="sw-img-label">1973 Ossa 250 Explorer</div>
-              <div class="sw-img-sub">Photography coming</div>
-            </div>
-            <div class="sw-card-body">
-              <div class="sw-card-meta">
-                <span class="sw-card-num">02</span>
-                <span class="sw-card-cat factory-cat">Studio &middot; Factory &middot; Automotive</span>
-              </div>
-              <div class="sw-card-title">1973 Ossa 250 <em>Explorer</em></div>
-              <div class="sw-card-desc">A heritage restoration project documenting the journey from 3D scan through digital archive to cast component. Preserving what cannot be sourced, reproducing what was lost.</div>
-              <a href="#factory" class="sw-card-link factory-link">View Project <span>→</span></a>
-            </div>
+          <div class="ciz-img ciz-img-placeholder">
+            <div class="ciz-img-label">Art historical reference</div>
+            <div class="ciz-img-sub">Image coming</div>
           </div>
-
-          <div class="sw-card sw-card-upcoming">
-            <div class="sw-card-img sw-img-placeholder sw-img-upcoming">
-              <div class="sw-img-label">Next Project</div>
-              <div class="sw-img-sub">In development</div>
-            </div>
-            <div class="sw-card-body">
-              <div class="sw-card-meta">
-                <span class="sw-card-num">03</span>
-                <span class="sw-card-cat upcoming-cat">Coming Soon</span>
-              </div>
-              <div class="sw-card-title"><em>In Development</em></div>
-              <div class="sw-card-desc">A new commission project currently in the Studio phase. To be announced.</div>
-              <a href="#commission" class="sw-card-link upcoming-link">Enquire <span>→</span></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Studio closing CTA -->
-      <div class="studio-cta">
-        <div class="studio-cta-inner">
-          <div class="sc-orn">
-            <div class="sc-orn-line"></div>
-            <div class="sc-orn-diamond"></div>
-            <div class="sc-orn-line"></div>
-          </div>
-          <p class="studio-cta-text">Have a project in mind? A form that deserves to be made, a heritage object that needs to be understood, a vision that requires a maker who thinks as well as builds.</p>
-          <a href="#commission" class="studio-cta-link">Begin a Conversation <span>→</span></a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       THE EDITIONS
-  ═══════════════════════════════════════ -->
-  <section class="world-section editions-section" id="editions">
-    <div class="section-inner">
-
-      <div class="vt-section-head editions-section-head">
-        <div class="vt-sh-crown editions-crown">
-          <div class="vt-sh-line editions-line"></div>
-          <canvas class="vt-sh-mark" id="markEditions" width="40" height="40"></canvas>
-          <div class="vt-sh-label-centre">The Editions &nbsp;&middot;&nbsp; Art &amp; Design Programme</div>
-          <canvas class="vt-sh-mark" id="markEditions2" width="40" height="40"></canvas>
-          <div class="vt-sh-line editions-line-r"></div>
+  <!-- MANTRA DIVIDER -->
+  <div class="mantra-divider">
+    <div class="md-line"></div>
+    <div class="md-centre">
+      <canvas class="md-mark" id="markMantra" width="56" height="44"></canvas>
+      <div class="md-text">
+        <div class="md-past">Reverse engineering the past</div>
+        <div class="md-orn">
+          <span class="md-l"></span>
+          <span class="md-d"></span>
+          <span class="md-l"></span>
         </div>
-        <h2 class="vt-sh-title editions-sh-title"><strong>Homage</strong> to Form<br>&amp; Future Series</h2>
-        <p class="vt-sh-sub editions-sh-sub">An ongoing programme of art and design objects. Each series a numbered edition — thematically distinct, materially considered, fabricated at Vintage Tech.</p>
-        <a href="#commission" class="editions-trade-link">Trade Enquiries <span>→</span></a>
+        <div class="md-future">for the future</div>
+      </div>
+    </div>
+    <div class="md-line"></div>
+  </div>
+
+  <!-- FACTORY HALF — THE MAKING -->
+  <section class="project-section factory-section-bg" id="factoryHalf">
+    <div class="project-inner">
+
+      <div class="ps-world-label">
+        <canvas class="ps-mark" id="markFactoryP" width="32" height="32"></canvas>
+        <div class="ps-world-text factory-world-text">The Factory &mdash; The Making</div>
       </div>
 
-      <!-- Series I -->
-      <div class="series-block">
-        <div class="series-label">Series I — Homage to Form</div>
-        <div class="series-inner">
-          <div class="series-image-col">
-            <div class="series-img-placeholder">
-              <div class="sip-label">Homage to Form</div>
-              <div class="sip-sub">Photography coming</div>
-            </div>
-          </div>
-          <div class="series-text-col">
-            <div class="series-eyebrow">Art History &amp; the Technology of Making</div>
-            <h3 class="series-title"><em>Homage to Form</em></h3>
-            <div class="series-body">
-              <p>Form does not fade. It persists throughout time.</p>
-              <p>Long after a maker is gone, form remains — carrying forward decisions shaped by material, constraint, and intent. This is how knowledge moves across generations: not through instruction, but through what endures.</p>
-              <p>At Vintage Tech, reverse engineering the past begins with form. This series exists at the intersection of art history, artificial intelligence, and the precision of contemporary making.</p>
-            </div>
-            <div class="series-details">
-              <div class="sd-item">
-                <div class="sd-label">Medium</div>
-                <div class="sd-value">3D Fabricated, Hand-finished, Weighted</div>
-              </div>
-              <div class="sd-item">
-                <div class="sd-label">Programme</div>
-                <div class="sd-value">Edition I — Ongoing</div>
-              </div>
-              <div class="sd-item">
-                <div class="sd-label">Objects</div>
-                <div class="sd-value">Five pieces — Series I</div>
-              </div>
-              <div class="sd-item">
-                <div class="sd-label">Available</div>
-                <div class="sd-value">Wholesale — Trade Registration</div>
-              </div>
-            </div>
-            <a href="#commission" class="series-cta">Register Trade Interest <span>→</span></a>
-          </div>
-        </div>
-      </div>
+      <div class="process-sequence">
 
-      <!-- Object grid — five pieces -->
-      <div class="objects-head">
-        <div class="oh-label">The Objects</div>
-        <div class="oh-rule"></div>
-        <div class="oh-count">Series I &nbsp;&middot;&nbsp; 5 pieces</div>
-      </div>
-
-      <div class="objects-grid">
-
-        <div class="object-card">
-          <div class="oc-img oc-img-placeholder">
-            <div class="oc-num">I</div>
+        <div class="process-seq-step">
+          <div class="pss-num">
+            <span class="pss-n">01</span>
+            <div class="pss-connector"></div>
           </div>
-          <div class="oc-body">
-            <div class="oc-title"><em>Object I</em></div>
-            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
-            <div class="oc-meta">
-              <span class="oc-label">3D Fabricated</span>
-              <span class="oc-label">Hand-finished</span>
-            </div>
+          <div class="pss-img pss-img-placeholder pss-studio">
+            <div class="pss-img-label">AI Generation</div>
+            <div class="pss-img-sub">Process image coming</div>
+          </div>
+          <div class="pss-text">
+            <div class="pss-step-label studio-step-label">Studio</div>
+            <div class="pss-step-name">Generate</div>
+            <div class="pss-step-desc">The form is conceived through AI &mdash; a conversation between historical reference and contemporary possibility. The intelligence of the prompt is the design act.</div>
           </div>
         </div>
 
-        <div class="object-card">
-          <div class="oc-img oc-img-placeholder">
-            <div class="oc-num">II</div>
+        <div class="process-seq-step">
+          <div class="pss-num">
+            <span class="pss-n">02</span>
+            <div class="pss-connector"></div>
           </div>
-          <div class="oc-body">
-            <div class="oc-title"><em>Object II</em></div>
-            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
-            <div class="oc-meta">
-              <span class="oc-label">3D Fabricated</span>
-              <span class="oc-label">Hand-finished</span>
-            </div>
+          <div class="pss-img pss-img-placeholder pss-factory">
+            <div class="pss-img-label">3D Fabrication</div>
+            <div class="pss-img-sub">Process image coming</div>
           </div>
-        </div>
-
-        <div class="object-card">
-          <div class="oc-img oc-img-placeholder">
-            <div class="oc-num">III</div>
-          </div>
-          <div class="oc-body">
-            <div class="oc-title"><em>Object III</em></div>
-            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
-            <div class="oc-meta">
-              <span class="oc-label">3D Fabricated</span>
-              <span class="oc-label">Hand-finished</span>
-            </div>
+          <div class="pss-text">
+            <div class="pss-step-label factory-step-label">Factory</div>
+            <div class="pss-step-name">Fabricate</div>
+            <div class="pss-step-desc">The digital form becomes physical. Weight is considered and added &mdash; the object earns its presence in a room. A 3D print is not a prototype here. It is the object.</div>
           </div>
         </div>
 
-        <div class="object-card">
-          <div class="oc-img oc-img-placeholder">
-            <div class="oc-num">IV</div>
+        <div class="process-seq-step">
+          <div class="pss-num">
+            <span class="pss-n">03</span>
           </div>
-          <div class="oc-body">
-            <div class="oc-title"><em>Object IV</em></div>
-            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
-            <div class="oc-meta">
-              <span class="oc-label">3D Fabricated</span>
-              <span class="oc-label">Hand-finished</span>
-            </div>
+          <div class="pss-img pss-img-placeholder pss-finish">
+            <div class="pss-img-label">Hand Finishing</div>
+            <div class="pss-img-sub">Process image coming</div>
           </div>
-        </div>
-
-        <div class="object-card">
-          <div class="oc-img oc-img-placeholder">
-            <div class="oc-num">V</div>
-          </div>
-          <div class="oc-body">
-            <div class="oc-title"><em>Object V</em></div>
-            <div class="oc-desc">Homage to Form Series I. Photography and title coming.</div>
-            <div class="oc-meta">
-              <span class="oc-label">3D Fabricated</span>
-              <span class="oc-label">Hand-finished</span>
-            </div>
+          <div class="pss-text">
+            <div class="pss-step-label factory-step-label">Factory</div>
+            <div class="pss-step-name">Finish</div>
+            <div class="pss-step-desc">Each object is hand-painted and finished to a standard worthy of the form it carries. The surface is the last act of the maker &mdash; and the first thing the eye meets.</div>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <!-- Trade pathway -->
-      <div class="trade-pathway">
-        <div class="tp-inner">
-          <div class="tp-text-col">
-            <div class="tp-eyebrow">Wholesale Enquiries</div>
-            <h3 class="tp-title">Available to <em>Trade</em></h3>
-            <p class="tp-desc">The Homage to Form series is available exclusively to wholesale buyers — interior designers, design retailers, gallery gift shops, and homewares boutiques whose clients value objects made with intelligence and care.</p>
-            <p class="tp-desc">Pricing, minimum order quantities, and catalogue information are available upon registration. All enquiries are reviewed individually.</p>
-          </div>
-          <div class="tp-cta-col">
-            <div class="tp-qualifiers">
-              <div class="tp-q-item">
-                <div class="tp-q-diamond"></div>
-                <div class="tp-q-text">Interior Designers</div>
-              </div>
-              <div class="tp-q-item">
-                <div class="tp-q-diamond"></div>
-                <div class="tp-q-text">Design Retailers</div>
-              </div>
-              <div class="tp-q-item">
-                <div class="tp-q-diamond"></div>
-                <div class="tp-q-text">Gallery Gift Shops</div>
-              </div>
-              <div class="tp-q-item">
-                <div class="tp-q-diamond"></div>
-                <div class="tp-q-text">Homewares Boutiques</div>
-              </div>
-            </div>
-            <a href="#commission" class="tp-cta">Register Trade Interest <span>→</span></a>
-          </div>
+  <!-- THE OBJECTS -->
+  <section class="project-section objects-section-bg" id="theObjects">
+    <div class="project-inner">
+
+      <div class="ps-world-label">
+        <canvas class="ps-mark" id="markObjects" width="32" height="32"></canvas>
+        <div class="ps-world-text editions-world-text">The Objects &mdash; Series I</div>
+      </div>
+
+      <div class="finished-objects-grid">
+        <div class="fo-card">
+          <div class="fo-img fo-img-placeholder"><div class="fo-num">I</div></div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-img fo-img-placeholder"><div class="fo-num">II</div></div>
+        </div>
+        <div class="fo-card fo-card-large">
+          <div class="fo-img fo-img-placeholder fo-img-large"><div class="fo-num">III</div></div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-img fo-img-placeholder"><div class="fo-num">IV</div></div>
+        </div>
+        <div class="fo-card">
+          <div class="fo-img fo-img-placeholder"><div class="fo-num">V</div></div>
         </div>
       </div>
 
-      <!-- Future series placeholder -->
-      <div class="future-series">
-        <div class="fs-label">Future Series</div>
-        <div class="fs-desc">Subsequent series will explore distinct thematic territories — craft traditions, natural systems, industrial heritage, and beyond. Each a numbered edition under the Vintage Tech programme.</div>
-        <div class="fs-status">In Development</div>
+      <div class="fo-caption">
+        <div class="foc-text">Homage to Form, Series I &mdash; Five objects. 3D fabricated, weighted, hand-finished. Bondi Junction, Sydney, 2024&ndash;2025.</div>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       THE FACTORY
-  ═══════════════════════════════════════ -->
-  <section class="world-section factory-section" id="factory">
-    <div class="factory-grid-bg"></div>
-    <div class="section-inner">
+  <!-- RELATED + CTA -->
+  <section class="project-section project-footer-section">
+    <div class="project-inner">
+      <div class="project-footer-grid">
 
-      <div class="vt-section-head factory-section-head">
-        <div class="vt-sh-crown factory-crown">
-          <div class="vt-sh-slash">//</div>
-          <canvas class="vt-sh-mark" id="markFactory" width="40" height="40"></canvas>
-          <div class="vt-sh-line factory-line"></div>
-          <div class="vt-sh-code">VT-FACTORY &nbsp;&middot;&nbsp; AU-07</div>
-        </div>
-        <h2 class="vt-sh-title factory-sh-title">Idea<br>Meets<br><span class="factory-accent">Iron.</span></h2>
-        <p class="vt-sh-sub factory-sh-sub">Where the Studio's vision meets the discipline of manufacture — toleranced, tested, built to outlast the era that imagined it.</p>
-      </div>
-
-      <!-- Object as Thread — Six Service Sequence -->
-      <div class="service-sequence">
-        <div class="seq-header">
-          <div class="seq-header-studio">Studio half — understand</div>
-          <div class="seq-divider-v"></div>
-          <div class="seq-header-factory">Factory half — make</div>
+        <div class="pf-related">
+          <div class="pfr-label">Related Work</div>
+          <a href="index.html#factory" class="pfr-link">
+            <div class="pfr-img pfr-img-placeholder">
+              <div class="pfr-img-label">Ossa 250 Explorer</div>
+            </div>
+            <div class="pfr-text">
+              <div class="pfr-title">1973 Ossa 250 <em>Explorer</em></div>
+              <div class="pfr-desc">From 3D scan to cast component &mdash; the Object as Thread in automotive restoration.</div>
+              <div class="pfr-cta">View Project <span>&rarr;</span></div>
+            </div>
+          </a>
         </div>
 
-        <div class="services-grid">
-
-          <!-- Studio services -->
-          <div class="service-card studio-service">
-            <div class="sc-img sc-img-placeholder sc-img-scan">
-              <div class="sc-img-label">3D Scanning</div>
-              <div class="sc-img-badge studio-badge">Scan</div>
-            </div>
-            <div class="sc-num">01</div>
-            <div class="sc-name">3D Scanning</div>
-            <div class="sc-desc">Capturing what still exists of the original object with precision point-cloud technology.</div>
-            <div class="sc-card-footer">
-              <div class="sc-tag">Capture</div>
-              <a href="https://www.vintagetech.com.au/2422/" target="_blank" class="sc-article-link">Read Article <span>→</span></a>
-            </div>
-          </div>
-
-          <div class="service-card studio-service">
-            <div class="sc-img sc-img-placeholder sc-img-reveng">
-              <div class="sc-img-label">Reverse Engineering</div>
-              <div class="sc-img-badge studio-badge">Study</div>
-            </div>
-            <div class="sc-num">02</div>
-            <div class="sc-name">Reverse Engineering</div>
-            <div class="sc-desc">Understanding how it was made, why it was made that way, and what principles governed its form.</div>
-            <div class="sc-card-footer">
-              <div class="sc-tag">Understand</div>
-              <a href="https://www.vintagetech.com.au/index.php/reverse-engineering-bespoke-custom-mechanical-engineering-automotiveparts-sydney-australia/" target="_blank" class="sc-article-link">View Process <span>→</span></a>
-            </div>
-          </div>
-
-          <div class="service-card studio-service">
-            <div class="sc-img sc-img-placeholder sc-img-cad">
-              <div class="sc-img-label">AutoCAD Design</div>
-              <div class="sc-img-badge studio-badge">Design</div>
-            </div>
-            <div class="sc-num">03</div>
-            <div class="sc-name">AutoCAD Design</div>
-            <div class="sc-desc">Translating heritage understanding into a precise modern specification ready for manufacture.</div>
-            <div class="sc-card-footer">
-              <div class="sc-tag">Specify</div>
-            </div>
-          </div>
-
-          <!-- Thread divider -->
-          <div class="thread-divider">
-            <div class="td-line"></div>
-            <div class="td-text">The Object as Thread</div>
-            <div class="td-line"></div>
-          </div>
-
-          <!-- Factory services -->
-          <div class="service-card factory-service">
-            <div class="sc-img sc-img-placeholder sc-img-print">
-              <div class="sc-img-label">3D Printing</div>
-              <div class="sc-img-badge factory-badge">
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                  <polygon points="1,1 7,4 1,7" fill="rgba(106,156,196,0.8)"/>
-                </svg>
-                Video
-              </div>
-            </div>
-            <div class="sc-num">04</div>
-            <div class="sc-name">3D Printing &amp; Prototyping</div>
-            <div class="sc-desc">Testing the idea before committing to material. Rapid iteration on form and function.</div>
-            <div class="sc-card-footer">
-              <div class="sc-tag factory-tag">Test</div>
-              <a href="https://www.vintagetech.com.au/3d-printing-and-rapid-prototyping/" target="_blank" class="sc-article-link factory-article">View Process <span>→</span></a>
-            </div>
-          </div>
-
-          <div class="service-card factory-service">
-            <div class="sc-img sc-img-placeholder sc-img-cnc">
-              <div class="sc-img-label">CNC 5-Axis</div>
-              <div class="sc-img-badge factory-badge">
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                  <polygon points="1,1 7,4 1,7" fill="rgba(106,156,196,0.8)"/>
-                </svg>
-                Video
-              </div>
-            </div>
-            <div class="sc-num">05</div>
-            <div class="sc-name">CNC Machining 5-Axis</div>
-            <div class="sc-desc">Precision manufacture at modern tolerances. Complex geometries executed with exacting accuracy.</div>
-            <div class="sc-card-footer">
-              <div class="sc-tag factory-tag">Manufacture</div>
-            </div>
-          </div>
-
-          <div class="service-card factory-service">
-            <div class="sc-img sc-img-placeholder sc-img-cast">
-              <div class="sc-img-label">Foundry Casting</div>
-              <div class="sc-img-badge factory-badge">
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                  <polygon points="1,1 7,4 1,7" fill="rgba(106,156,196,0.8)"/>
-                </svg>
-                Video
-              </div>
-            </div>
-            <div class="sc-num">06</div>
-            <div class="sc-name">Foundry Casting</div>
-            <div class="sc-desc">Recreating original material form and surface. The past remade in its own language.</div>
-            <div class="sc-card-footer">
-              <div class="sc-tag factory-tag">Complete</div>
-              <a href="https://www.vintagetech.com.au/recasting-the-past-for-the-future-innovative-foundry-casting/" target="_blank" class="sc-article-link factory-article">View Process <span>→</span></a>
-            </div>
-          </div>
-
+        <div class="pf-journal">
+          <div class="pfj-label">From the Journal</div>
+          <a href="https://www.vintagetech.com.au/3875/" target="_blank" class="pfj-link">
+            <div class="pfj-title"><em>Homage to Form</em></div>
+            <div class="pfj-desc">Read the full essay on art history, form, and the act of making at Vintage Tech.</div>
+            <div class="pfj-cta">Read Essay <span>&rarr;</span></div>
+          </a>
         </div>
 
-        <!-- Specs bar -->
-        <div class="specs-bar">
-          <div class="spec-item">
-            <div class="spec-val">±0.005<span class="spec-u">mm</span></div>
-            <div class="spec-label">Tolerance</div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-val">5<span class="spec-u">-axis</span></div>
-            <div class="spec-label">CNC Milling</div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-val">72<span class="spec-u">hr</span></div>
-            <div class="spec-label">Rapid Proto</div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-val">ISO<span class="spec-u"> 9001</span></div>
-            <div class="spec-label">Certified</div>
-          </div>
+        <div class="pf-cta">
+          <div class="pfc-label">Wholesale Enquiries</div>
+          <div class="pfc-title">Available to <em>Trade</em></div>
+          <p class="pfc-desc">The Homage to Form series is available exclusively to wholesale buyers. Register your interest to receive pricing and catalogue information.</p>
+          <a href="index.html#commission" class="pfc-btn editions-btn">Register Trade Interest <span>&rarr;</span></a>
         </div>
 
       </div>
-
-      <!-- Bespoke Automotive -->
-      <div class="automotive-block">
-        <div class="auto-label">Specialisation</div>
-        <div class="auto-inner">
-          <div class="auto-text">
-            <h3 class="auto-title">Bespoke <em>Automotive</em></h3>
-            <p class="auto-desc">Classic and vintage automotive restoration represents the purest expression of what Vintage Tech does — a discipline where heritage, precision, and material intelligence converge in a single object that must perform as well as it endures.</p>
-            <a href="#commission" class="auto-cta">Discuss Your Project <span>→</span></a>
-          </div>
-          <div class="auto-img-placeholder">
-            <div class="aip-label">Automotive</div>
-            <div class="aip-sub">Photography coming</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Also includes -->
-      <div class="also-includes">
-        <div class="ai-label">Also includes</div>
-        <div class="ai-items">
-          <div class="ai-item">Mechanical Engineering Services</div>
-          <div class="ai-item">Sheet Metal Fabrication</div>
-          <div class="ai-item">Surface Finishing</div>
-          <div class="ai-item">CMM Inspection</div>
-          <div class="ai-item">Assembly</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       JOURNAL
-  ═══════════════════════════════════════ -->
-  <section class="journal-section" id="journal">
-    <div class="section-inner">
-
-      <div class="vt-section-head journal-section-head">
-        <div class="vt-sh-crown journal-crown">
-          <canvas class="vt-sh-mark" id="markJournal" width="40" height="40"></canvas>
-          <div class="vt-sh-line journal-line"></div>
-          <div class="vt-sh-label-left">The Journal &nbsp;&middot;&nbsp; Ideas &amp; Making</div>
-        </div>
-        <h2 class="vt-sh-title journal-sh-title">Ideas, Material Culture<br>&amp; <em>The Act of Making</em></h2>
-        <p class="vt-sh-sub journal-sh-sub">Long-form writing on art history, heritage manufacture, AI and design, and the stories behind specific commissions. Vintage Tech's public editorial voice.</p>
-      </div>
-
-      <div class="journal-grid">
-
-        <div class="journal-card featured-card">
-          <div class="jc-img-placeholder featured-placeholder">
-            <div class="jp-label">Homage to Form</div>
-          </div>
-          <div class="jc-content">
-            <div class="jc-category">Homage to Form</div>
-            <h3 class="jc-title"><em>Form does not fade. It persists throughout time.</em></h3>
-            <p class="jc-excerpt">Introducing a new body of work from Vintage Tech. A series of sculptures shaped by our ongoing exploration of form, continuity, and contemporary making.</p>
-            <a href="https://www.vintagetech.com.au/3875/" target="_blank" class="jc-read">Read Essay <span>→</span></a>
-          </div>
-        </div>
-
-        <div class="journal-card">
-          <div class="jc-img-placeholder secondary-placeholder">
-            <div class="jp-label">Smart Factory</div>
-          </div>
-          <div class="jc-content">
-            <div class="jc-category">Smart Factory Series</div>
-            <h3 class="jc-title">The Future Forged: AI, Heritage, and a Sustainable Tomorrow</h3>
-            <p class="jc-excerpt">How artificial intelligence and advanced manufacturing are redefining what it means to preserve the past while building toward the future.</p>
-            <a href="https://www.vintagetech.com.au" target="_blank" class="jc-read">Read <span>→</span></a>
-          </div>
-        </div>
-
-        <div class="journal-card">
-          <div class="jc-img-placeholder tertiary-placeholder">
-            <div class="jp-label">Process</div>
-          </div>
-          <div class="jc-content">
-            <div class="jc-category">Material Stories</div>
-            <h3 class="jc-title">Recasting the Past: Innovative Approaches to Foundry Casting</h3>
-            <p class="jc-excerpt">The history behind casting techniques and how contemporary methods are allowing us to recreate what was once thought irreplaceable.</p>
-            <a href="https://www.vintagetech.com.au" target="_blank" class="jc-read">Read <span>→</span></a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="journal-footer">
-        <a href="https://www.vintagetech.com.au" target="_blank" class="all-articles">All Articles &amp; Features <span>→</span></a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       COMMISSION
-  ═══════════════════════════════════════ -->
-  <section class="commission-section" id="commission">
-    <div class="section-inner">
-
-      <div class="commission-inner">
-        <div class="commission-text">
-          <div class="comm-eyebrow">All Pathways Lead Here</div>
-          <h2 class="comm-title">Commission</h2>
-          <div class="comm-orn">
-            <span class="co-line"></span>
-            <span class="co-diamond"></span>
-            <span class="co-line"></span>
-          </div>
-          <p class="comm-body">Whether you are working on a heritage restoration, a bespoke design project, or a trade enquiry for the Editions programme — every conversation begins here.</p>
-          <p class="comm-body">Tell us what you are trying to make. What it should outlast. What story it should carry.</p>
-        </div>
-
-        <form class="commission-form" name="commission" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="commission">
-          <p class="hidden"><label>Do not fill this in if you are human: <input name="bot-field"></label></p>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label">Name</label>
-              <input type="text" name="name" class="form-input" placeholder="Your name" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label">Email</label>
-              <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label">Enquiry Type</label>
-            <select name="enquiry-type" class="form-select">
-              <option value="">Select one</option>
-              <option value="studio">Studio — Design &amp; Creative Direction</option>
-              <option value="editions">Editions — Trade Registration</option>
-              <option value="factory">Factory — Engineering Commission</option>
-              <option value="automotive">Bespoke Automotive</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label">Your Brief</label>
-            <textarea name="brief" class="form-textarea" rows="5" placeholder="What are you trying to make? What should it outlast? What story should it carry?" required></textarea>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label">Organisation <span class="optional">(optional)</span></label>
-            <input type="text" name="organisation" class="form-input" placeholder="Business or studio name">
-          </div>
-
-          <button type="submit" class="form-submit">Send Enquiry <span>→</span></button>
-
-        </form>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -2210,23 +2152,17 @@ a { text-decoration: none; color: inherit; }
       <div class="footer-nav">
         <div class="fn-col">
           <div class="fn-head">Navigate</div>
-          <a href="#studio" class="fn-link">The Studio</a>
-          <a href="#editions" class="fn-link">The Editions</a>
-          <a href="#factory" class="fn-link">The Factory</a>
-          <a href="#journal" class="fn-link">Journal</a>
-          <a href="#commission" class="fn-link">Commission</a>
+          <a href="index.html#studio" class="fn-link">The Studio</a>
+          <a href="index.html#editions" class="fn-link">The Editions</a>
+          <a href="index.html#factory" class="fn-link">The Factory</a>
+          <a href="index.html#journal" class="fn-link">Journal</a>
+          <a href="index.html#commission" class="fn-link">Commission</a>
         </div>
         <div class="fn-col">
           <div class="fn-head">Connect</div>
           <a href="https://www.linkedin.com/company/vintage_tech/" target="_blank" class="fn-link">LinkedIn</a>
           <a href="https://www.instagram.com/vintagetechengineer/" target="_blank" class="fn-link">Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=100091513103515" target="_blank" class="fn-link">Facebook</a>
           <a href="mailto:info@vintagetech.com.au" class="fn-link">Email Us</a>
-        </div>
-        <div class="fn-col">
-          <div class="fn-head">Legal</div>
-          <a href="https://www.vintagetech.com.au/index.php/privacy-policy/" target="_blank" class="fn-link">Privacy Policy</a>
-          <a href="#commission" class="fn-link">Terms</a>
         </div>
       </div>
     </div>
@@ -2661,6 +2597,130 @@ a { text-decoration: none; color: inherit; }
   document.fonts.ready.then(function () {
     requestAnimationFrame(frame);
   });
+
+})();
+
+/* ═══════════════════════════════════════
+   Vintage Tech — Project Page JS
+   Animated diamond mark + video handling
+═══════════════════════════════════════ */
+
+(function () {
+  'use strict';
+
+  var TWO_PI   = Math.PI * 2;
+  var SPIN_MS  = 4400;
+  var PAUSE_MS = 2000;
+  var CYCLE_MS = SPIN_MS + PAUSE_MS;
+  var loopStart = null;
+
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+  function rotY(x, y, z, a) {
+    return { x: x*Math.cos(a)+z*Math.sin(a), y: y, z: -x*Math.sin(a)+z*Math.cos(a) };
+  }
+  function proj(p, fov, cx, cy) {
+    var s = fov/(fov+p.z);
+    return { x: cx+p.x*s, y: cy+p.y*s, z: p.z };
+  }
+  function getAngle(ts) {
+    if (!loopStart) loopStart = ts;
+    var e = (ts - loopStart) % CYCLE_MS;
+    return e < SPIN_MS ? easeInOut(e/SPIN_MS) * TWO_PI : TWO_PI;
+  }
+
+  function drawMark(canvas, W, H, sl, sr, sg, bg, angle) {
+    var ctx = canvas.getContext('2d');
+    var cx = canvas.width/2, cy = canvas.height/2, fov = 200;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    var base = [{x:0,y:-H,z:0},{x:W,y:0,z:0},{x:0,y:H,z:0},{x:-W,y:0,z:0}];
+    var rot = base.map(function(v){return rotY(v.x,v.y,v.z,angle);});
+    var prj = rot.map(function(p){return proj(p,fov,cx,cy);});
+
+    /* Fills */
+    ctx.save(); ctx.beginPath(); ctx.rect(0,0,cx,canvas.height); ctx.clip();
+    ctx.beginPath(); prj.forEach(function(p,i){i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);});
+    ctx.closePath(); ctx.fillStyle=sl+'0.09)'; ctx.fill(); ctx.restore();
+
+    ctx.save(); ctx.beginPath(); ctx.rect(cx,0,canvas.width-cx,canvas.height); ctx.clip();
+    ctx.beginPath(); prj.forEach(function(p,i){i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);});
+    ctx.closePath(); ctx.fillStyle=sr+'0.07)'; ctx.fill(); ctx.restore();
+
+    /* Edges */
+    [{f:3,t:0,c:sl},{f:0,t:1,c:sr},{f:1,t:2,c:sr},{f:2,t:3,c:sl}]
+    .map(function(e){return{f:e.f,t:e.t,c:e.c,z:(rot[e.f].z+rot[e.t].z)/2};})
+    .sort(function(a,b){return a.z-b.z;})
+    .forEach(function(e){
+      var nz=(e.z+W)/(2*W);
+      var op=Math.max(0.14,Math.min(0.92,0.16+nz*0.76));
+      ctx.beginPath(); ctx.moveTo(prj[e.f].x,prj[e.f].y);
+      ctx.lineTo(prj[e.t].x,prj[e.t].y);
+      ctx.strokeStyle=e.c+op.toFixed(2)+')';
+      ctx.lineWidth=1+nz*1.2; ctx.lineCap='round'; ctx.stroke();
+    });
+
+    /* Axis */
+    ctx.beginPath(); ctx.moveTo(cx,cy-H); ctx.lineTo(cx,cy+H);
+    ctx.strokeStyle=sg+'0.42)'; ctx.lineWidth=0.65; ctx.stroke();
+
+    /* Centre diamond */
+    var ds=2.5; ctx.save(); ctx.translate(cx,cy); ctx.rotate(Math.PI/4);
+    ctx.fillStyle=bg; ctx.fillRect(-ds,-ds,ds*2,ds*2);
+    ctx.strokeStyle=sg+'0.88)'; ctx.lineWidth=0.65; ctx.strokeRect(-ds,-ds,ds*2,ds*2);
+    ctx.restore();
+  }
+
+  /* Collect all mark canvases on this page */
+  var marks = [
+    { id: 'heroMark',    W:32,H:24, sl:'rgba(184,154,106,', sr:'rgba(184,154,106,', sg:'rgba(184,154,106,', bg:'#050507' },
+    { id: 'studioMark',  W:14,H:11, sl:'rgba(74,158,106,',  sr:'rgba(74,158,106,',  sg:'rgba(184,154,106,', bg:'#0c1a12' },
+    { id: 'factoryMark', W:14,H:11, sl:'rgba(74,158,106,',  sr:'rgba(106,156,196,', sg:'rgba(184,154,106,', bg:'#070910' },
+    { id: 'objectsMark', W:14,H:11, sl:'rgba(184,154,106,', sr:'rgba(184,154,106,', sg:'rgba(184,154,106,', bg:'rgba(11,10,8,1)' }
+  ].map(function(m){ return Object.assign(m, {canvas: document.getElementById(m.id)}); })
+   .filter(function(m){ return m.canvas; });
+
+  /* ── Video handling ── */
+  var video      = document.getElementById('heroVideo');
+  var vimeoFrame = document.getElementById('vimeoFrame');
+  var placeholder= document.getElementById('videoPlaceholder');
+
+  if (video) {
+    video.play().then(function() {
+      if (placeholder) placeholder.style.display = 'none';
+    }).catch(function() {
+      /* Autoplay blocked — show placeholder, keep animated mark */
+    });
+  } else if (vimeoFrame) {
+    if (placeholder) {
+      setTimeout(function(){ placeholder.style.opacity = '0'; }, 2000);
+    }
+  }
+
+  /* ── Scroll indicator ── */
+  var scrollInd = document.getElementById('projectScrollInd');
+  if (scrollInd) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > window.innerHeight * 0.3) {
+        scrollInd.style.opacity = '0';
+        scrollInd.style.pointerEvents = 'none';
+      } else {
+        scrollInd.style.opacity = '1';
+      }
+    }, { passive: true });
+  }
+
+  /* ── Animation loop ── */
+  function frame(ts) {
+    var angle = getAngle(ts);
+    marks.forEach(function(m) {
+      drawMark(m.canvas, m.W, m.H, m.sl, m.sr, m.sg, m.bg, angle);
+    });
+    requestAnimationFrame(frame);
+  }
+
+  document.fonts.ready.then(function(){ requestAnimationFrame(frame); });
 
 })();
 </script>

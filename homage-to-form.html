@@ -1501,6 +1501,12 @@ a { text-decoration: none; color: inherit; }
   display: flex; justify-content: space-between;
   align-items: flex-end;
 }
+.ph-content-centred {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  bottom: 60px; left: 0; right: 0;
+}
 .ph-text { max-width: 560px; }
 .ph-eyebrow {
   font-family: var(--ff-mono); font-size: 11px;
@@ -1513,13 +1519,13 @@ a { text-decoration: none; color: inherit; }
   color: rgba(237,232,222,.95); line-height: .97;
   margin-bottom: 18px;
 }
-.ph-premise {
-  font-family: var(--ff-body); font-size: 15px;
-  font-weight: 300; color: rgba(237,232,222,.55);
-  line-height: 1.75; max-width: 420px;
+.ph-title-centred {
+  text-align: center;
+  margin-bottom: 20px;
 }
 .ph-meta { text-align: right; }
 .ph-tags { display: flex; gap: 8px; justify-content: flex-end; margin-bottom: 16px; }
+.ph-content-centred .ph-tags { justify-content: center; margin-bottom: 0; }
 .ph-tag {
   font-family: var(--ff-cond); font-size: 11px;
   letter-spacing: .16em; text-transform: uppercase;
@@ -1922,14 +1928,13 @@ a { text-decoration: none; color: inherit; }
 
     <div class="ph-overlay"></div>
 
-    <div class="ph-content">
+    <div class="ph-content ph-content-centred">
       <div class="ph-breadcrumb">
         <span class="ph-bc-item">The Editions</span>
         <span class="ph-bc-sep">&middot;</span>
         <span class="ph-bc-item">Series I</span>
       </div>
-      <h1 class="ph-title"><em>Homage to Form</em></h1>
-      <p class="ph-premise">Where art history meets the tools of now</p>
+      <h1 class="ph-title ph-title-centred"><em>Homage to Form</em></h1>
       <div class="ph-tags">
         <span class="ph-tag studio-ph-tag">Studio</span>
         <span class="ph-tag editions-ph-tag">Editions</span>

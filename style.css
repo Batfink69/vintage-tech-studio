@@ -841,8 +841,3 @@ a { text-decoration: none; color: inherit; }
   .comm-title { font-size: 48px; }
   .mantra-past { font-size: 15px; }
 }
-.homage-img {
-  background-image: url('assets/placeholder-Homage.png');
-  background-size: cover;
-  background-position: center;
-}
